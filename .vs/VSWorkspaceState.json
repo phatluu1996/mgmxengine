@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Assets",
+    "\\Assets\\Scripts",
+    "\\Assets\\Scripts\\Core",
+    "\\Assets\\Scripts\\Player",
+    "\\Assets\\Scripts\\Player\\StateMachine",
+    "\\Assets\\Scripts\\Player\\StateMachine\\ParentState",
+    "\\Assets\\Scripts\\Player\\StateMachine\\SubState"
+  ],
+  "SelectedNode": "\\Assets\\Scripts\\Player\\StateMachine\\SubState\\PlayerIdleState.cs",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Obstacle
+  - Water
+  - UI
+  - Player
+  - Enemy
+  - EnemyWeapon
+  - Boss
+  - BossWeapon
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Tile Collisions
+    uniqueID: 2000527061
+    locked: 0
+  - name: Tile Layer 1
+    uniqueID: 156529771
+    locked: 0
+  - name: Player
+    uniqueID: 1518992689
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
