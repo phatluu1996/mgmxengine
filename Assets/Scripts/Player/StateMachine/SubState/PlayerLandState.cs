@@ -1,15 +1,13 @@
-﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UnityEngine;
 
-public class PlayerArialState : PlayerState
+public class PlayerLandState : PlayerGroundedState
 {
-    public PlayerArialState(PlayerStateMachine stateMachine, Player player, SpriteDataSet spriteDataSet) : base(stateMachine, player, spriteDataSet)
+    public PlayerLandState(PlayerStateMachine stateMachine, Player player, SpriteDataSet spriteDataSet) : base(stateMachine, player, spriteDataSet)
     {
     }
-   
+
     public override void OnEnter()
     {
         base.OnEnter();
@@ -18,6 +16,7 @@ public class PlayerArialState : PlayerState
     public override void OnEnter(bool stopAttack, float normalizeTime)
     {
         base.OnEnter(stopAttack, normalizeTime);
+        VelocicyX = 0;
     }
 
     public override void OnExit()
@@ -28,6 +27,7 @@ public class PlayerArialState : PlayerState
     public override void OnFinish(int index)
     {
         base.OnFinish(index);
+        StateMachine.To(States.Idle);
     }
 
     public override void OnTrigger(int index)
@@ -38,9 +38,6 @@ public class PlayerArialState : PlayerState
     public override void OnUpdate()
     {
         base.OnUpdate();
-        Input.Check();
-        if(Input.AxisXHold != 0){
-            Player.DirX = Input.AxisXHold;
-        }
+        
     }
 }

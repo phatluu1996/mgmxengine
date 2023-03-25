@@ -75,6 +75,9 @@ public class PlayerDashState : PlayerGroundedState
         if(Player.DirX != m_DashDirection){
             StateMachine.To(States.Run);
             return;
+        }else if(Input.Jump.Pressed){
+            StateMachine.To(States.Jump);
+            return;
         }
     }
 }

@@ -1,15 +1,13 @@
-﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UnityEngine;
 
-public class PlayerArialState : PlayerState
+public class PlayerFallState : PlayerArialState
 {
-    public PlayerArialState(PlayerStateMachine stateMachine, Player player, SpriteDataSet spriteDataSet) : base(stateMachine, player, spriteDataSet)
+    public PlayerFallState(PlayerStateMachine stateMachine, Player player, SpriteDataSet spriteDataSet) : base(stateMachine, player, spriteDataSet)
     {
     }
-   
+
     public override void OnEnter()
     {
         base.OnEnter();
@@ -37,10 +35,8 @@ public class PlayerArialState : PlayerState
 
     public override void OnUpdate()
     {
-        base.OnUpdate();
-        Input.Check();
-        if(Input.AxisXHold != 0){
-            Player.DirX = Input.AxisXHold;
-        }
+        base.OnUpdate();      
+        VelocicyX = Physics.RunSpeed * Input.AxisXHold;
+        
     }
 }

@@ -19,7 +19,7 @@ public class PlayerState : AbstractState
     public float VelocicyX { get => Player.VelocityX; set => Player.VelocityX = value; }
     public float VelocicyY { get => Player.VelocityY; set => Player.VelocityY = value; }
     public PlayerPhysicsData Physics => Player.PhysicsData;
-
+    public PlayerController.CollisionInfo Collisions => Player.Controller.collisions;
     public PlayerState(PlayerStateMachine stateMachine, Player player, SpriteDataSet spriteDataSet) : base()
     {
         m_StateMachine = stateMachine;

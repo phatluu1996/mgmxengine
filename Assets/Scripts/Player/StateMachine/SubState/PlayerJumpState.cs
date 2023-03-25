@@ -1,25 +1,22 @@
-﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
-public class PlayerIdleState : PlayerGroundedState
+public class PlayerJumpState : PlayerArialState
 {
-    public PlayerIdleState(PlayerStateMachine stateMachine, Player player, SpriteDataSet spriteDataSet) : base(stateMachine, player, spriteDataSet)
+    public PlayerJumpState(PlayerStateMachine stateMachine, Player player, SpriteDataSet spriteDataSet) : base(stateMachine, player, spriteDataSet)
     {
     }
-
+   
     public override void OnEnter()
     {
         base.OnEnter();
-        VelocicyX = 0;
     }
 
     public override void OnEnter(bool stopAttack, float normalizeTime)
     {
         base.OnEnter(stopAttack, normalizeTime);
+        VelocicyY = Physics.JumpSpeed;
     }
 
     public override void OnExit()
@@ -40,15 +37,10 @@ public class PlayerIdleState : PlayerGroundedState
     public override void OnUpdate()
     {
         base.OnUpdate();
-        if(Input.AxisXHold != 0)
-        {
-            StateMachine.To(States.Run);
-            return;
-        }else if(Input.Dash.Pressed){
-            StateMachine.To(States.Dash);
-            return;
-        }else if(Input.Jump.Pressed){
-            StateMachine.To(States.Jump);
+        VelocicyX = Physics.RunSpeed * Input.AxisXHold;
+
+        if(VelocicyY <= 0 || Collisions.above){
+            StateMachine.To(States.Fall);
             return;
         }
     }

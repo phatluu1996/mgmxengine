@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a250cde82f6c454f886f592876c0f05, type: 3}
   m_Name: Land
   m_EditorClassIdentifier: 
-  m_Animation: {fileID: 0}
-  m_AttackAnimation: []
-  m_SpecialAnimation: []
+  m_SpriteData: {fileID: 11400000, guid: 945fc76ac0ce9a24e8482669260d7b99, type: 2}
+  m_AttackSpriteData: []
+  m_SpecialAttackSpriteDatas: []

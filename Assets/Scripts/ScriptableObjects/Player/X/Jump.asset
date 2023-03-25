@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a250cde82f6c454f886f592876c0f05, type: 3}
   m_Name: Jump
   m_EditorClassIdentifier: 
-  m_Animation: {fileID: 0}
-  m_AttackAnimation: []
-  m_SpecialAnimation: []
+  m_SpriteData: {fileID: 11400000, guid: a206c15907663ff4ea93d6596957e156, type: 2}
+  m_AttackSpriteData: []
+  m_SpecialAttackSpriteDatas: []
