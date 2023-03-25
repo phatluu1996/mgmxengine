@@ -53,4 +53,14 @@ public class X : Player
     {
         base.FixedUpdate();
     }
+
+    public override void AnimationTransit(SpriteDataSet spriteDataSet, float normalizeTime)
+    {
+        base.AnimationTransit(spriteDataSet, normalizeTime);
+        if(IsAttack){
+            SpriteAnimate.Animate(spriteDataSet.AttackSpriteDatas[AttackIndex], normalizeTime);
+        }else{
+            SpriteAnimate.Animate(spriteDataSet.SpriteData, normalizeTime);
+        }  
+    }
 }

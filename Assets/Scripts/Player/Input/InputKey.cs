@@ -12,9 +12,9 @@ public class InputKey
     private bool m_IsReleased;
     private bool m_IsHold;
 
-    public bool IsPressed { get => m_IsPressed; set => m_IsPressed = value; }
-    public bool IsReleased { get => m_IsReleased; set => m_IsReleased = value; }
-    public bool IsHold { get => m_IsHold; set => m_IsHold = value; }
+    public bool Pressed { get => m_IsPressed; set => m_IsPressed = value; }
+    public bool Released { get => m_IsReleased; set => m_IsReleased = value; }
+    public bool Hold { get => m_IsHold; set => m_IsHold = value; }
     public KeyCode KeyCode { get => m_KeyCode; set => m_KeyCode = value; }
 
     public InputKey(KeyCode keyCode)

@@ -44,6 +44,9 @@ class PlayerRunState : PlayerGroundedState
         {
             StateMachine.To(States.Idle);
             return;
+        }else if(Input.Dash.Pressed){
+            StateMachine.To(States.Dash);
+            return;
         }
     }
 }

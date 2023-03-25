@@ -14,6 +14,7 @@ public class PlayerIdleState : PlayerGroundedState
     public override void OnEnter()
     {
         base.OnEnter();
+        VelocicyX = 0;
     }
 
     public override void OnEnter(bool stopAttack, float normalizeTime)
@@ -42,6 +43,9 @@ public class PlayerIdleState : PlayerGroundedState
         if(Input.AxisXHold != 0)
         {
             StateMachine.To(States.Run);
+            return;
+        }else if(Input.Dash.Pressed){
+            StateMachine.To(States.Dash);
             return;
         }
     }

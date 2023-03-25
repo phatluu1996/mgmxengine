@@ -40,6 +40,7 @@ public class PlayerGroundedState : PlayerState
     {
         base.OnUpdate();
         Input.Check();
+        VelocicyY =  Mathf.Clamp(VelocicyY - Physics.Gravity * Time.deltaTime, -5.5f, 5.5f);
         if(Input.AxisXHold != 0)
         {
             Player.DirX = Input.AxisXHold;

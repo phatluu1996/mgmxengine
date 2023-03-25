@@ -31,5 +31,6 @@ public class PlayerStateManager {
     {
         m_Idle = new PlayerIdleState(stateMachine, player, spriteSetsManager.Idle);
         m_Run = new PlayerRunState(stateMachine, player, spriteSetsManager.Run);
+        m_Dash = new PlayerDashState(stateMachine, player, spriteSetsManager.Dash);
     }
 }

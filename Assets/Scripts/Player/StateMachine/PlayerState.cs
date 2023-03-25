@@ -14,6 +14,7 @@ public class PlayerState : AbstractState
     public InputHandler Input { get => Player.InputHandler; }
     public PlayerState PrevState { get => Player.StateMachine.PrevState; }
     public PlayerStateManager States { get => Player.StateManager; }
+    public Animator Animator { get => Player.Animator; }
     public Vector2 Velocicy { get => Player.Velocity; set => Player.Velocity = value; }
     public float VelocicyX { get => Player.VelocityX; set => Player.VelocityX = value; }
     public float VelocicyY { get => Player.VelocityY; set => Player.VelocityY = value; }
@@ -28,7 +29,7 @@ public class PlayerState : AbstractState
 
     public override void OnEnter()
     {
-        VelocicyX = 0;
+        Timer = 0;
     }
 
     public override void OnEnter(bool stopAttack, float normalizeTime)
@@ -36,7 +37,7 @@ public class PlayerState : AbstractState
         OnEnter();
         if (!stopAttack)
         {
-            m_Player.SpriteAnimate.Animate(m_SpriteDataSet.SpriteData, normalizeTime);
+            Player.AnimationTransit(SpriteData, normalizeTime);
         }
         else
         {

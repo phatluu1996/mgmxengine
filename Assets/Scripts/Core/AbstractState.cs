@@ -1,13 +1,13 @@
 public abstract class AbstractState : IState
 {
-    private float m_WaitTime;
-    public float WaitTime { get => m_WaitTime; set => m_WaitTime = value; }
+    private float m_Timer;
+    public float Timer { get => m_Timer; set => m_Timer = value; }
     private bool m_AnimationFinish;
     public bool AnimationFinish { get => m_AnimationFinish; set => m_AnimationFinish = value; }
 
-    public AbstractState(float waitTime, bool animationFinish)
+    public AbstractState(float Timer, bool animationFinish)
     {
-        m_WaitTime = waitTime;
+        m_Timer = Timer;
         m_AnimationFinish = animationFinish;
     }
 
