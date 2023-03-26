@@ -16,6 +16,18 @@ public class PlayerLandState : PlayerGroundedState
     public override void OnEnter(bool stopAttack, float normalizeTime)
     {
         base.OnEnter(stopAttack, normalizeTime);
+        if(Input.AxisXHold != 0)
+        {
+            Player.Animator.SetBool("run_direct", true);
+            StateMachine.To(States.Run);
+            return;
+        }else if(Input.Dash.Pressed){
+            StateMachine.To(States.Dash);
+            return;
+        }else if(Input.Jump.Pressed){
+            StateMachine.To(States.Jump);
+            return;
+        }
         VelocicyX = 0;
     }
 
@@ -38,6 +50,17 @@ public class PlayerLandState : PlayerGroundedState
     public override void OnUpdate()
     {
         base.OnUpdate();
-        
+        if(Input.AxisXHold != 0)
+        {
+            Player.Animator.SetBool("run_direct", true);
+            StateMachine.To(States.Run);
+            return;
+        }else if(Input.Dash.Pressed){
+            StateMachine.To(States.Dash);
+            return;
+        }else if(Input.Jump.Pressed){
+            StateMachine.To(States.Jump);
+            return;
+        }
     }
 }

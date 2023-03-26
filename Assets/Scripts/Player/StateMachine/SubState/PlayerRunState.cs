@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-class PlayerRunState : PlayerGroundedState
+public class PlayerRunState : PlayerGroundedState
 {
     public PlayerRunState(PlayerStateMachine stateMachine, Player player, SpriteDataSet spriteDataSet) : base(stateMachine, player, spriteDataSet)
     {
@@ -24,6 +24,7 @@ class PlayerRunState : PlayerGroundedState
     public override void OnExit()
     {
         base.OnExit();
+        Player.Animator.SetBool("run_direct", false);
     }
 
     public override void OnFinish(int index)

@@ -55,6 +55,8 @@ public class Player : Entity, IDamageable
     [SerializeField]
     private float m_DashTime;
     public float DashTime { get => m_DashTime; set => m_DashTime = value; }
+    private bool m_DashJump;
+    public bool DashJump { get => m_DashJump; set => m_DashJump = value; }
     
     #endregion
 

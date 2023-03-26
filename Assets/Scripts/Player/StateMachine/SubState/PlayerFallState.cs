@@ -16,6 +16,7 @@ public class PlayerFallState : PlayerArialState
     public override void OnEnter(bool stopAttack, float normalizeTime)
     {
         base.OnEnter(stopAttack, normalizeTime);
+        VelocicyY = 0;
     }
 
     public override void OnExit()
@@ -35,8 +36,22 @@ public class PlayerFallState : PlayerArialState
 
     public override void OnUpdate()
     {
-        base.OnUpdate();      
-        VelocicyX = Physics.RunSpeed * Input.AxisXHold;
-        
+        base.OnUpdate();
+        VelocicyX = (Player.DashJump ? Physics.DashSpeed : Physics.RunSpeed) * Input.AxisXHold;
+        if (Collisions.below)
+        {
+            if (Input.AxisXHold != 0)
+            {
+                Player.Animator.SetBool("run_direct", true);
+                StateMachine.To(States.Run);
+                return;
+            }
+            else
+            {
+                StateMachine.To(States.Land);
+                return;
+            }
+
+        }
     }
 }

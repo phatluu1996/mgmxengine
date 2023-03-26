@@ -40,9 +40,12 @@
      <Compile Include="Assets\Scripts\Core\Entity.cs" />
      <Compile Include="Assets\Scripts\Core\SpriteDataSet.cs" />
      <Compile Include="Assets\Scripts\Core\IState.cs" />
+     <Compile Include="Assets\Scripts\Player\StateMachine\SubState\PlayerFallState.cs" />
      <Compile Include="Assets\Scripts\Core\PlayerPhysicsData.cs" />
+     <Compile Include="Assets\Scripts\Player\StateMachine\SubState\PlayerLandState.cs" />
      <Compile Include="Assets\Scripts\Player\StateMachine\ParentState\PlayerWallState.cs" />
      <Compile Include="Assets\Scripts\Core\AbstractStateMachine.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Core\AbstractState.cs" />
      <Compile Include="Assets\Scripts\Core\IAnimation.cs" />
      <Compile Include="Assets\Scripts\Core\SpriteSetsManager.cs" />
@@ -52,21 +55,18 @@
      <Compile Include="Assets\Scripts\Player\StateMachine\SubState\PlayerIdleState.cs" />
      <Compile Include="Assets\Scripts\Player\Input\InputHandler.cs" />
      <Compile Include="Assets\Scripts\Core\SpriteData.cs" />
+     <Compile Include="Assets\Scripts\Core\AbstractController.cs" />
      <Compile Include="Assets\Scripts\Player\StateMachine\ParentState\PlayerGroundedState.cs" />
      <Compile Include="Assets\Scripts\Player\StateMachine\SubState\PlayerRunState.cs" />
      <Compile Include="Assets\Scripts\Core\SpriteAnimate.cs" />
      <Compile Include="Assets\Scripts\Player\StateMachine\PlayerState.cs" />
      <Compile Include="Assets\Scripts\Player\X.cs" />
+     <Compile Include="Assets\Scripts\Player\StateMachine\SubState\PlayerJumpState.cs" />
      <Compile Include="Assets\Scripts\Player\StateMachine\ParentState\PlayerArialState.cs" />
      <Compile Include="Assets\Scripts\Player\StateMachine\PlayerStateManager.cs" />
      <Compile Include="Assets\Scripts\Core\Singleton.cs" />
      <Compile Include="Assets\Scripts\Core\GameManager.cs" />
      <Compile Include="Assets\Scripts\Player\StateMachine\SubState\PlayerDashState.cs" />
-     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\Core\AbstractController.cs" />
-     <Compile Include="Assets\Scripts\Player\StateMachine\SubState\PlayerJumpState.cs" />
-     <Compile Include="Assets\Scripts\Player\StateMachine\SubState\PlayerFallState.cs" />
-     <Compile Include="Assets\Scripts\Player\StateMachine\SubState\PlayerLandState.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:\UnityProjects\2022.1.16f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

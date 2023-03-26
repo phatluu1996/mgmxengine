@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 public class PlayerArialState : PlayerState
 {
@@ -39,6 +40,7 @@ public class PlayerArialState : PlayerState
     {
         base.OnUpdate();
         Input.Check();
+        VelocicyY =  Mathf.Clamp(VelocicyY - Physics.Gravity * Application.targetFrameRate * Time.deltaTime, -5.5f, 5.5f);
         if(Input.AxisXHold != 0){
             Player.DirX = Input.AxisXHold;
         }

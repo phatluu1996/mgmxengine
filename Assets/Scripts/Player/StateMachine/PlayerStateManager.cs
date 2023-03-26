@@ -8,24 +8,25 @@ public class PlayerStateManager {
     [SerializeField]
     private PlayerState m_BeamDown;
     [SerializeField]
-    private PlayerState m_Idle;
+    private PlayerIdleState m_Idle;
     [SerializeField]
-    private PlayerState m_Run;
+    private PlayerRunState m_Run;
     [SerializeField]
-    private PlayerState m_Dash;
+    private PlayerDashState m_Dash;
     [SerializeField]
-    private PlayerState m_Jump;
+    private PlayerJumpState m_Jump;
     [SerializeField]
-    private PlayerState m_Fall;
+    private PlayerFallState m_Fall;
     [SerializeField]
-    private PlayerState m_Land;
+    private PlayerLandState m_Land;
+    
     public PlayerState BeamDown { get => m_BeamDown; set => m_BeamDown = value; }
-    public PlayerState Idle { get => m_Idle; set => m_Idle = value; }
-    public PlayerState Run { get => m_Run; set => m_Run = value; }
-    public PlayerState Dash { get => m_Dash; set => m_Dash = value; }
-    public PlayerState Jump { get => m_Jump; set => m_Jump = value; }
-    public PlayerState Fall { get => m_Fall; set => m_Fall = value; }
-    public PlayerState Land { get => m_Land; set => m_Land = value; }
+    public PlayerIdleState Idle { get => m_Idle; set => m_Idle = value; }
+    public PlayerRunState Run { get => m_Run; set => m_Run = value; }
+    public PlayerDashState Dash { get => m_Dash; set => m_Dash = value; }
+    public PlayerJumpState Jump { get => m_Jump; set => m_Jump = value; }
+    public PlayerFallState Fall { get => m_Fall; set => m_Fall = value; }
+    public PlayerLandState Land { get => m_Land; set => m_Land = value; }
 
     public PlayerStateManager(PlayerStateMachine stateMachine, Player player, SpriteSetsManager spriteSetsManager)
     {

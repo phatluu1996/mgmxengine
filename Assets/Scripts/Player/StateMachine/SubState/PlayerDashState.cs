@@ -46,13 +46,21 @@ public class PlayerDashState : PlayerGroundedState
     {
         base.OnUpdate();
         Timer += Time.deltaTime;
-        if(!Input.Dash.Hold || Timer >= Player.DashTime){
+        if((!Input.Dash.Hold && Input.AxisXHold == 0) || Timer >= Player.DashTime){
+            if (Input.AxisXHold != 0)
+            {
+                Player.Animator.SetBool("run_direct", true);
+                StateMachine.To(States.Run);
+                return;
+            }
+
             if(!Animator.GetBool("dash_end")){
                 Animator.SetBool("dash_end", true);
                 m_SmoothX = 0;
-                m_StartDash = false;                
-                if(Timer < 3/Application.targetFrameRate){
-                    VelocicyX = 0;
+                m_StartDash = false;      
+                  
+                if(Timer < Player.DashTime){
+                    VelocicyX/=5;
                 }else{
                     VelocicyX/=3;
                 }
@@ -76,7 +84,11 @@ public class PlayerDashState : PlayerGroundedState
             StateMachine.To(States.Run);
             return;
         }else if(Input.Jump.Pressed){
+            Player.DashJump = Input.Dash.Hold;
             StateMachine.To(States.Jump);
+            return;
+        }else if(!Collisions.below){
+            StateMachine.To(States.Fall);
             return;
         }
     }

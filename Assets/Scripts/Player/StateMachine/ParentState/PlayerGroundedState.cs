@@ -19,6 +19,7 @@ public class PlayerGroundedState : PlayerState
     public override void OnEnter(bool stopAttack, float normalizeTime)
     {
         base.OnEnter(stopAttack, normalizeTime);
+        Player.DashJump = false;
     }
 
     public override void OnExit()
@@ -40,7 +41,7 @@ public class PlayerGroundedState : PlayerState
     {
         base.OnUpdate();
         Input.Check();
-        VelocicyY =  Mathf.Clamp(VelocicyY - Physics.Gravity * Time.deltaTime, -5.5f, 5.5f);
+        VelocicyY =  Mathf.Clamp(VelocicyY - Physics.Gravity * Application.targetFrameRate * Time.deltaTime, -5.5f, 5.5f);
         if(Input.AxisXHold != 0)
         {
             Player.DirX = Input.AxisXHold;

@@ -23,7 +23,6 @@ public class SpriteAnimate : IAnimation
     }
 
     public void Animate(SpriteData spriteData){
-
         m_CurrentSpriteData = spriteData;
         m_Animator.Play(spriteData.AnimationName, 0);
     }
