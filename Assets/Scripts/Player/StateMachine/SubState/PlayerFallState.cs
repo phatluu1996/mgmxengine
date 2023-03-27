@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerFallState : PlayerArialState
 {
+    
+
     public PlayerFallState(PlayerStateMachine stateMachine, Player player, SpriteDataSet spriteDataSet) : base(stateMachine, player, spriteDataSet)
     {
     }
@@ -15,8 +17,11 @@ public class PlayerFallState : PlayerArialState
 
     public override void OnEnter(bool stopAttack, float normalizeTime)
     {
-        base.OnEnter(stopAttack, normalizeTime);
+        base.OnEnter(stopAttack, normalizeTime);        
         VelocicyY = 0;
+        if(m_LeaveWall){
+            Player.DirX *= -1;
+        }        
     }
 
     public override void OnExit()
@@ -36,8 +41,7 @@ public class PlayerFallState : PlayerArialState
 
     public override void OnUpdate()
     {
-        base.OnUpdate();
-        VelocicyX = (Player.DashJump ? Physics.DashSpeed : Physics.RunSpeed) * Input.AxisXHold;
+        base.OnUpdate();                
         if (Collisions.below)
         {
             if (Input.AxisXHold != 0)
@@ -51,7 +55,14 @@ public class PlayerFallState : PlayerArialState
                 StateMachine.To(States.Land);
                 return;
             }
-
+        }
+        else if ((Collisions.right || Collisions.left) && Input.AxisXHold != 0)
+        {
+            StateMachine.To(States.WallSlide);
+            return;
+        }else if(Input.Up.Hold && States.ClimbLadder.m_Ladder != null){
+            StateMachine.To(States.ClimbLadder);
+            return;
         }
     }
 }

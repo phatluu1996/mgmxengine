@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 
-[Serializable]
 public class Follow
 {
     [SerializeField]
@@ -45,9 +44,10 @@ public class Follow
     //     set => m_SmoothFollowSpeed = value;
     // }
 
-    public Follow(Transform target, CameraEngine cameraEngine, Vector2 deadZone)
+    public Follow(Transform target, Vector2 targetOffset, CameraEngine cameraEngine, Vector2 deadZone)
     {
         m_Target = target;
+        m_TargetOffset = targetOffset;
         m_CameraEngine = cameraEngine;
         m_DeadZone = deadZone;
     }

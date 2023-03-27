@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Player : Entity, IDamageable
 {
-    
+    private static Player m_Instance;
+    public static Player Instance { get => m_Instance; set => m_Instance = value; }
     [SerializeField]
     private bool m_StartBeamDown;
     public bool StartBeamDown { get => m_StartBeamDown; set => m_StartBeamDown = value; }
@@ -26,8 +27,8 @@ public class Player : Entity, IDamageable
     [SerializeField]
     private InputHandler m_InputHandler;
     [SerializeField]
-    private PlayerPhysicsData m_PhysicsData;  
-    [SerializeField]  
+    private PlayerPhysicsData m_PhysicsData;
+    [SerializeField]
     private PlayerController m_Controller;
     public SpriteData CurrentSpriteData { get => m_CurrentSpriteData; set => m_CurrentSpriteData = value; }
     public SpriteAnimate SpriteAnimate { get => m_SpriteAnimate; set => m_SpriteAnimate = value; }
@@ -37,10 +38,10 @@ public class Player : Entity, IDamageable
     public PlayerStateManager StateManager { get => m_StateManager; set => m_StateManager = value; }
     public SpriteSetsManager SpriteSetsManager { get => m_SpriteSetsManager; set => m_SpriteSetsManager = value; }
     public InputHandler InputHandler { get => m_InputHandler; set => m_InputHandler = value; }
-    public PlayerPhysicsData PhysicsData { get => m_PhysicsData; set => m_PhysicsData = value; }    
+    public PlayerPhysicsData PhysicsData { get => m_PhysicsData; set => m_PhysicsData = value; }
     public PlayerController Controller { get => m_Controller; set => m_Controller = value; }
     #endregion
-    
+
 
     #region Variables
     [SerializeField]
@@ -57,10 +58,19 @@ public class Player : Entity, IDamageable
     public float DashTime { get => m_DashTime; set => m_DashTime = value; }
     private bool m_DashJump;
     public bool DashJump { get => m_DashJump; set => m_DashJump = value; }
-    
+
     #endregion
 
+    #region Wall
+    [Range(0, 15)]
+    public float m_WallJumpFrames = 5;
+    #endregion 
 
+    #region Ladder
+    [SerializeField]
+    private LayerMask m_LadderMask;
+    public LayerMask LadderMask { get => m_LadderMask; set => m_LadderMask = value; }
+    #endregion
 
 
     public void Damage(int damage, RaycastHit2D hit)
@@ -76,12 +86,14 @@ public class Player : Entity, IDamageable
     public override void Awake()
     {
         base.Awake();
-        Application.targetFrameRate = 60;
+        m_Instance = this;
+        Application.targetFrameRate = 60;        
         m_SpriteAnimate = new SpriteAnimate(Animator);
         m_InputHandler = new InputHandler();
         m_StateMachine = new PlayerStateMachine();
         m_StateManager = new PlayerStateManager(m_StateMachine, this, m_SpriteSetsManager);
         m_StateMachine.Init(m_StateManager.Idle);
+        Controller.collisions.below = true;
     }
 
     public override void Start()
@@ -135,7 +147,8 @@ public class Player : Entity, IDamageable
         m_StateMachine.CurrentState.OnTrigger(index);
     }
 
-    public virtual void AnimationTransit(SpriteDataSet spriteDataSet, float normalizeTime){
+    public virtual void AnimationTransit(SpriteDataSet spriteDataSet, float normalizeTime)
+    {
 
     }
 }

@@ -37,13 +37,15 @@ public class PlayerJumpState : PlayerArialState
     public override void OnUpdate()
     {
         base.OnUpdate();
-        VelocicyX = (Player.DashJump ? Physics.DashSpeed : Physics.RunSpeed) * Input.AxisXHold;
 
         if(VelocicyY <= 0 || Collisions.above || !Input.Jump.Hold){
             if(!Input.Jump.Hold){
                 VelocicyY = 0;
             }
             StateMachine.To(States.Fall);
+            return;
+        }else if(Input.Up.Hold && States.ClimbLadder.m_Ladder != null){
+            StateMachine.To(States.ClimbLadder);
             return;
         }
     }

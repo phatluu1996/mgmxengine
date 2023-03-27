@@ -2206,6 +2206,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: x_normal_100
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1458333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5abf12ba6a26da249a06e57c3c72e53c
+      internalID: 391340489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: x_normal_101
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 384
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1458333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1304f95280a87c4a85837bc94ac8b13
+      internalID: 1739145755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -2228,8 +2270,10 @@ TextureImporter:
       x_normal_14: -1725481539
       x_normal_30: 253093800
       x_normal_53: -1188211270
+      x_normal_101: 1739145755
       x_normal_35: -1371323671
       x_normal_5: 1546512141
+      x_normal_100: 391340489
       x_normal_76: -878882402
       x_normal_73: -1712423945
       x_normal_93: 799256370

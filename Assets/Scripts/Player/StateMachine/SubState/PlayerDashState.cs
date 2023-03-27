@@ -60,7 +60,7 @@ public class PlayerDashState : PlayerGroundedState
                 m_StartDash = false;      
                   
                 if(Timer < Player.DashTime){
-                    VelocicyX/=5;
+                    VelocicyX = m_DashDirection * 0.1f;
                 }else{
                     VelocicyX/=3;
                 }

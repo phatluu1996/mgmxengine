@@ -51,6 +51,19 @@ public class PlayerIdleState : PlayerGroundedState
             Player.DashJump = Input.Dash.Hold;
             StateMachine.To(States.Jump);
             return;
+        }else if(!Collisions.below){
+            StateMachine.To(States.Fall);
+            return;
+        }else if(Input.Down.Hold){
+            if(m_CanClimbDownLadder){
+                StateMachine.To(States.ClimbLadderDown);
+            }else{
+                StateMachine.To(States.Crouch);
+            }            
+            return;
+        }else if(Input.Up.Hold && States.ClimbLadder.m_Ladder != null && !m_CanClimbDownLadder){
+            StateMachine.To(States.ClimbLadder);
+            return;
         }
     }
 }

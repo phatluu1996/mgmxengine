@@ -60,7 +60,7 @@ public abstract class Entity : MonoBehaviour
 
     public float y
     {
-        get => transform.position.x;
+        get => transform.position.y;
         set{
             Vector2 pos = transform.position;
             pos.y = value;

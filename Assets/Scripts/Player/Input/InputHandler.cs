@@ -38,4 +38,6 @@ public class InputHandler
     public float AxisXHold { get => Right.Hold.GetHashCode() - Left.Hold.GetHashCode(); }
     public float AxisXPressed { get => Right.Pressed.GetHashCode() - Left.Pressed.GetHashCode(); }
     
+    public float AxisYHold { get => Up.Hold.GetHashCode() - Down.Hold.GetHashCode(); }
+    public float AxisYPressed { get => Up.Pressed.GetHashCode() - Down.Pressed.GetHashCode(); }
 }

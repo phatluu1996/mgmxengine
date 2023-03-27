@@ -26,21 +26,23 @@ public class CameraEngine : MonoBehaviour
     }
     
     [Header("Camera follow player")]
+    public Transform m_Target;
     public Follow m_CameraFollow;
 
     public void Awake()
-    {
-        // m_CameraFollow = new Follow(m_Target, this, Vector2.zero);
+    {        
+        m_CameraFollow = new Follow(m_Target, Vector2.up * 23, this, new Vector2(60f, 50f));
+        Position = (Vector2)m_CameraFollow.Target.position + m_CameraFollow.TargetOffset;
     }
 
     public void LateUpdate()
     {
-        m_CameraFollow.Update();
+        m_CameraFollow?.Update();
     }
     
     public void OnDrawGizmos()
     {
-        Utils.DrawBox(Position, m_CameraSize, Color.yellow);
-        m_CameraFollow.DrawGizmos();
+        Utils.DrawBox(Position, m_CameraSize, Color.yellow);        
+        m_CameraFollow?.DrawGizmos();
     }
 }
