@@ -12,7 +12,18 @@ public abstract class Entity : MonoBehaviour
     private Vector2 m_Velocity;
     public SpriteRenderer SR { get => m_SpriteRenderer; set => m_SpriteRenderer = value; }
     public Animator Animator { get => m_Animator; set => m_Animator = value; }
-    public Vector2 Position { get => transform.position; set => transform.position = value; }
+    public Vector2 Position
+    {
+        get => transform.position;
+        set
+        {
+            Vector3 pos = transform.position;
+            pos.x = value.x;
+            pos.y = value.y;
+            transform.position = pos;
+        }
+    }
+
     public Vector2 Velocity { get => m_Velocity; set => m_Velocity = value; }
     public float VelocityX { get => m_Velocity.x; set => m_Velocity.x = value; }
     public float VelocityY { get => m_Velocity.y; set => m_Velocity.y = value; }

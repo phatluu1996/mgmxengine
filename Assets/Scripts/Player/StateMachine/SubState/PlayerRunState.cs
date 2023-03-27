@@ -49,6 +49,7 @@ public class PlayerRunState : PlayerGroundedState
             StateMachine.To(States.Dash);
             return;
         }else if(Input.Jump.Pressed){
+            Player.DashJump = Input.Dash.Hold;
             StateMachine.To(States.Jump);
             return;
         }
