@@ -10,7 +10,7 @@ public class PlayerStateMachine : AbstractStateMachine<PlayerState>
     public override void Init(PlayerState nextState){
         CurrentState = nextState;
         PrevState  = nextState;
-        CurrentState.OnEnter();
+        CurrentState.OnEnter(false, 0);
     }
 
     public override void To(PlayerState nextState)

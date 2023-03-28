@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc4ce1193e1be6d40a33aea2f1732524, type: 3}
   m_Name: x_beam_down
   m_EditorClassIdentifier: 
-  m_AnimationClip: {fileID: 7400000, guid: ea05f2d97ae8ce74ba4b433da284dfc2, type: 2}
-  m_UseAnimationLength: 1
+  m_AnimationClip: {fileID: 7400000, guid: c01b5a69629973d43811bd30330ff5f0, type: 2}
+  m_UseAnimationLength: 0
   m_damage: 0

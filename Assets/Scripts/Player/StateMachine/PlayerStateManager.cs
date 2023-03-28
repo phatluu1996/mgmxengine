@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerStateManager
 {
     [SerializeField]
-    private PlayerState m_BeamDown;
+    private PlayerBeamDownState m_BeamDown;
     [SerializeField]
     private PlayerIdleState m_Idle;
     [SerializeField]
@@ -33,7 +33,7 @@ public class PlayerStateManager
     [SerializeField]
     private PlayerClimbLadderState m_ClimbLadder;
 
-    public PlayerState BeamDown { get => m_BeamDown; set => m_BeamDown = value; }
+    public PlayerBeamDownState BeamDown { get => m_BeamDown; set => m_BeamDown = value; }
     public PlayerIdleState Idle { get => m_Idle; set => m_Idle = value; }
     public PlayerCrouchState Crouch { get => m_Crouch; set => m_Crouch = value; }
     public PlayerRunState Run { get => m_Run; set => m_Run = value; }
@@ -48,6 +48,7 @@ public class PlayerStateManager
     public PlayerClimbLadderState ClimbLadder { get => m_ClimbLadder; set => m_ClimbLadder = value; }
     public PlayerStateManager(PlayerStateMachine stateMachine, Player player, SpriteSetsManager spriteSetsManager)
     {
+        m_BeamDown = new PlayerBeamDownState(stateMachine, player, spriteSetsManager.BeamDown);
         m_Idle = new PlayerIdleState(stateMachine, player, spriteSetsManager.Idle);
         m_Crouch = new PlayerCrouchState(stateMachine, player, spriteSetsManager.Crouch);
         m_Run = new PlayerRunState(stateMachine, player, spriteSetsManager.Run);

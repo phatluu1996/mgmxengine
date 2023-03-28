@@ -30,6 +30,7 @@ public class PlayerState : AbstractState
     public override void OnEnter()
     {
         Timer = 0;
+        AnimationFinish = false;
     }
 
     public override void OnEnter(bool stopAttack, float normalizeTime)
@@ -41,7 +42,7 @@ public class PlayerState : AbstractState
         }
         else
         {
-
+            
         }
     }
 
@@ -59,7 +60,7 @@ public class PlayerState : AbstractState
 
     public override void OnFinish(int index)
     {
-
+        AnimationFinish = true;
     }
 
     public override void OnTrigger(int index)

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraEngine : MonoBehaviour
 {
+    private static CameraEngine m_Instance;
+    public static CameraEngine Instance { get => m_Instance; set => m_Instance = value; }
     [SerializeField]
     private Vector2 m_CameraSize = new Vector2(1600, 900);
     private Vector2 m_Position;
@@ -24,25 +26,28 @@ public class CameraEngine : MonoBehaviour
             transform.position = pos;
         }
     }
-    
-    [Header("Camera follow player")]
     public Transform m_Target;
-    public Follow m_CameraFollow;
+    [Header("Camera Follow Module")]
+    public FollowModule m_FollowModule;
+
+    [Header("Camera Room Module")] 
+    public RoomModule m_RoomModule;
 
     public void Awake()
     {        
-        m_CameraFollow = new Follow(m_Target, Vector2.up * 23, this, new Vector2(60f, 50f));
-        Position = (Vector2)m_CameraFollow.Target.position + m_CameraFollow.TargetOffset;
+        m_Instance = this;
+        m_FollowModule = new FollowModule(m_Target, Vector2.up * 23, this, new Vector2(60f, 50f));
+        // Position = (Vector2)m_CameraFollow.Target.position + m_CameraFollow.TargetOffset;
     }
 
     public void LateUpdate()
     {
-        m_CameraFollow?.Update();
+        m_FollowModule?.Excute();
     }
     
     public void OnDrawGizmos()
     {
         Utils.DrawBox(Position, m_CameraSize, Color.yellow);        
-        m_CameraFollow?.DrawGizmos();
+        m_FollowModule?.DrawGizmos();
     }
 }

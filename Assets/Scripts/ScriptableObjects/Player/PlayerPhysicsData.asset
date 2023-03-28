@@ -19,3 +19,5 @@ MonoBehaviour:
   m_JumpSpeed: 5.25
   m_WallSlideSpeed: 1.25
   m_ClimbLadderSpeed: 1
+  m_BeamDownSpeed: 7
+  m_BeamUpSpeed: 7

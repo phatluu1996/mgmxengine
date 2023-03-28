@@ -35,4 +35,18 @@ public class Rectangle
     {
         return m_Bounds.Contains(point);
     }
+
+    public void Update(Vector2 newCenter)
+    {
+        m_Bounds.center = newCenter;
+        m_Center = newCenter;
+    }
+    
+    public void Update(Vector2 newCenter, Vector2 newSize)
+    {
+        m_Bounds.center = newCenter;
+        m_Bounds.size = newSize;
+        m_Center = newCenter;
+        m_Size = newSize;
+    }
 }

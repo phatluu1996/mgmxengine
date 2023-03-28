@@ -57,7 +57,8 @@ public class X : Player
     public override void AnimationTransit(SpriteDataSet spriteDataSet, float normalizeTime)
     {
         base.AnimationTransit(spriteDataSet, normalizeTime);
-        if(IsAttack){
+        if(IsAttack)
+        {
             SpriteAnimate.Animate(spriteDataSet.AttackSpriteDatas[AttackIndex], normalizeTime);
         }else{
             SpriteAnimate.Animate(spriteDataSet.SpriteData, normalizeTime);

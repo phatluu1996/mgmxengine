@@ -24,4 +24,10 @@ public class PlayerPhysicsData : ScriptableObject
     [SerializeField]
     private float m_ClimbLadderSpeed;
     public float ClimbLadderSpeed { get => m_ClimbLadderSpeed; set => m_ClimbLadderSpeed = value; }
+    [SerializeField] 
+    private float m_BeamDownSpeed;
+    public float BeamDownSpeed { get => m_BeamDownSpeed; set => m_BeamDownSpeed = value; }
+    [SerializeField] 
+    private float m_BeamUpSpeed;
+    public float BeamUpSpeed { get => m_BeamUpSpeed; set => m_BeamUpSpeed = value; }
 }

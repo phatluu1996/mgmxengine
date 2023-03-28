@@ -240,8 +240,8 @@ MonoBehaviour:
   m_SpriteRenderer: {fileID: 401121424632047725}
   m_Animator: {fileID: 401121424632047724}
   m_Velocity: {x: 0, y: 0}
-  m_StartBeamDown: 0
-  m_CurrentSpriteData: {fileID: 0}
+  m_StartBeamDown: 1
+  m_CurrentSpriteDataSet: {fileID: 0}
   m_HitBox: {fileID: 401121424384359338}
   m_HurtBox: {fileID: 401121422766556953}
   m_SpriteSetsManager: {fileID: 11400000, guid: e52d6d656cf0aae4ba82b7ea9ccfe72c, type: 2}

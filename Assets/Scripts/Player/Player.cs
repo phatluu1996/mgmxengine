@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class Player : Entity, IDamageable
 {
+    #region Singleton
     private static Player m_Instance;
     public static Player Instance { get => m_Instance; set => m_Instance = value; }
+    #endregion
+
+    #region Start Beam down
     [SerializeField]
     private bool m_StartBeamDown;
     public bool StartBeamDown { get => m_StartBeamDown; set => m_StartBeamDown = value; }
+    #endregion
+    
     #region Component
     [SerializeField]
-    private SpriteData m_CurrentSpriteData;
+    private SpriteDataSet m_CurrentSpriteDataSet;
     [SerializeField]
     private SpriteAnimate m_SpriteAnimate;
     [SerializeField]
@@ -30,7 +36,7 @@ public class Player : Entity, IDamageable
     private PlayerPhysicsData m_PhysicsData;
     [SerializeField]
     private PlayerController m_Controller;
-    public SpriteData CurrentSpriteData { get => m_CurrentSpriteData; set => m_CurrentSpriteData = value; }
+    public SpriteDataSet CurrentSpriteDataSet { get => m_CurrentSpriteDataSet; set => m_CurrentSpriteDataSet = value; }
     public SpriteAnimate SpriteAnimate { get => m_SpriteAnimate; set => m_SpriteAnimate = value; }
     public PlayerStateMachine StateMachine { get => m_StateMachine; set => m_StateMachine = value; }
     public BoxCollider2D HitBox { get => m_HitBox; set => m_HitBox = value; }
@@ -42,7 +48,6 @@ public class Player : Entity, IDamageable
     public PlayerController Controller { get => m_Controller; set => m_Controller = value; }
     #endregion
 
-
     #region Variables
     [SerializeField]
     private bool m_IsAttack;
@@ -50,7 +55,6 @@ public class Player : Entity, IDamageable
     public bool IsAttack { get => m_IsAttack; set => m_IsAttack = value; }
     public int AttackIndex { get => m_AttackIndex; set => m_AttackIndex = value; }
     #endregion
-
 
     #region Dash
     [SerializeField]
@@ -72,7 +76,6 @@ public class Player : Entity, IDamageable
     public LayerMask LadderMask { get => m_LadderMask; set => m_LadderMask = value; }
     #endregion
 
-
     public void Damage(int damage, RaycastHit2D hit)
     {
 
@@ -92,7 +95,7 @@ public class Player : Entity, IDamageable
         m_InputHandler = new InputHandler();
         m_StateMachine = new PlayerStateMachine();
         m_StateManager = new PlayerStateManager(m_StateMachine, this, m_SpriteSetsManager);
-        m_StateMachine.Init(m_StateManager.Idle);
+        m_StateMachine.Init(StartBeamDown ? m_StateManager.BeamDown : m_StateManager.Idle);
         Controller.collisions.below = true;
     }
 
@@ -149,6 +152,6 @@ public class Player : Entity, IDamageable
 
     public virtual void AnimationTransit(SpriteDataSet spriteDataSet, float normalizeTime)
     {
-
+        CurrentSpriteDataSet = spriteDataSet;
     }
 }
