@@ -45,8 +45,32 @@ public class PlayerDashState : PlayerGroundedState
     public override void OnUpdate()
     {
         base.OnUpdate();
+        
         Timer += Time.deltaTime;
-        if((!Input.Dash.Hold && Input.AxisXHold == 0) || Timer >= Player.DashTime){
+        if (Player.AirDash)
+        {
+            VelocicyY = 0;
+            if (Collisions.below)
+            {
+                Player.AirDash = false;
+                VelocicyY = -Physics.JumpSpeed;
+            }
+
+            if (Timer >= Player.AirDashTime)
+            {
+                if (Collisions.below)
+                {
+                    StateMachine.To(States.Idle);
+                    return;
+                }
+                else
+                {
+                    StateMachine.To(States.Fall);
+                    return;
+                }
+            }
+        }
+        if(!Player.AirDash && ((!Input.Dash.Hold && Input.AxisXHold == 0) || Timer >= Player.DashTime)){
             if (Input.AxisXHold != 0)
             {
                 Player.Animator.SetBool("run_direct", true);
@@ -73,21 +97,29 @@ public class PlayerDashState : PlayerGroundedState
                 m_SmoothX = 0;
                 Timer = 0;
             }
-            float speed = Physics.DashSpeed;
+            float speed = Player.AirDash ? Physics.AirDashSpeed : Physics.DashSpeed;
             if(!m_StartDash){
                 speed = Physics.DashPreSpeed;
             }
-            VelocicyX = Physics.DashSpeed * m_DashDirection;
+            VelocicyX = speed * m_DashDirection;
         }
 
         if(Player.DirX != m_DashDirection){
-            StateMachine.To(States.Run);
-            return;
-        }else if(Input.Jump.Pressed){
+            if (Player.AirDash)
+            {
+                StateMachine.To(States.Fall);
+                return;
+            }
+            else
+            {
+                StateMachine.To(States.Run);
+                return;
+            }
+        }else if(Input.Jump.Pressed && !Player.AirDash){
             Player.DashJump = true;
             StateMachine.To(States.Jump);
             return;
-        }else if(!Collisions.below){
+        }else if((!Player.AirDash && !Collisions.below) || (Player.AirDash && !Input.Dash.Hold) || Collisions.right || Collisions.left){
             StateMachine.To(States.Fall);
             return;
         }

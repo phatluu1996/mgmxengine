@@ -18,7 +18,7 @@ public class PlayerRunState : PlayerGroundedState
 
     public override void OnEnter(bool stopAttack, float normalizeTime)
     {
-        base.OnEnter(stopAttack, normalizeTime);        
+        base.OnEnter(stopAttack, normalizeTime);    
     }
 
     public override void OnExit()

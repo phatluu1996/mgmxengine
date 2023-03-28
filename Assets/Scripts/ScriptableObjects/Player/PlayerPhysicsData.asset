@@ -15,7 +15,8 @@ MonoBehaviour:
   m_Gravity: 0.25
   m_RunSpeed: 1.35
   m_DashSpeed: 3.5
-  m_DashPreSpeed: 0.25
+  m_AirDashSpeed: 4.5
+  m_DashPreSpeed: 0.1
   m_JumpSpeed: 5.25
   m_WallSlideSpeed: 1.25
   m_ClimbLadderSpeed: 1

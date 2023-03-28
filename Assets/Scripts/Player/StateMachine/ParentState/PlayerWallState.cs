@@ -20,6 +20,8 @@ public class PlayerWallState : PlayerState
     {
         base.OnEnter(stopAttack, normalizeTime);
         m_WallDirection = Player.DirX;
+        Player.DashJump = false;
+        Player.AirDash = false;
     }
 
     public override void OnExit()

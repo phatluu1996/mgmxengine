@@ -63,6 +63,11 @@ public class PlayerFallState : PlayerArialState
         }else if(Input.Up.Hold && States.ClimbLadder.m_Ladder != null){
             StateMachine.To(States.ClimbLadder);
             return;
+        }else if (Input.Dash.Pressed && !Player.AirDash && !Player.DashJump)
+        {
+            Player.AirDash = true;
+            StateMachine.To(States.Dash);
+            return;
         }
     }
 }

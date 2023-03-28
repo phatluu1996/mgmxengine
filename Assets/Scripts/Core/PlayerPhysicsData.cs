@@ -13,6 +13,9 @@ public class PlayerPhysicsData : ScriptableObject
     private float m_DashSpeed;
     public float DashSpeed { get => m_DashSpeed; set => m_DashSpeed = value; }
     [SerializeField]
+    private float m_AirDashSpeed;
+    public float AirDashSpeed { get => m_AirDashSpeed; set => m_AirDashSpeed = value; }
+    [SerializeField]
     private float m_DashPreSpeed;
     public float DashPreSpeed { get => m_DashPreSpeed; set => m_DashPreSpeed = value; }
     [SerializeField]

@@ -21,7 +21,12 @@ public class PlayerGroundedState : PlayerState
     public override void OnEnter(bool stopAttack, float normalizeTime)
     {
         base.OnEnter(stopAttack, normalizeTime);
+          
         Player.DashJump = false;
+        if (Collisions.below)
+        {
+            Player.AirDash = false;
+        }
     }
 
     public override void OnExit()

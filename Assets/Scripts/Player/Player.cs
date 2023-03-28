@@ -60,9 +60,13 @@ public class Player : Entity, IDamageable
     [SerializeField]
     private float m_DashTime;
     public float DashTime { get => m_DashTime; set => m_DashTime = value; }
+    [SerializeField]
+    private float m_AirDashTime;
+    public float AirDashTime { get => m_AirDashTime; set => m_AirDashTime = value; }
     private bool m_DashJump;
     public bool DashJump { get => m_DashJump; set => m_DashJump = value; }
-
+    private bool m_AirDash;
+    public bool AirDash { get => m_AirDash; set => m_AirDash = value; }
     #endregion
 
     #region Wall
