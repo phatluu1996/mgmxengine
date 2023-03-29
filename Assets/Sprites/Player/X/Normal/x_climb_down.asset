@@ -15,3 +15,5 @@ MonoBehaviour:
   m_AnimationClip: {fileID: 7400000, guid: d1dbdf01efd94304cb8a05f56f3eb7cb, type: 2}
   m_UseAnimationLength: 0
   m_damage: 0
+  m_TransitTime: 0
+  m_RepeatTime: 0

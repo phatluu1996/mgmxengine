@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Land
   m_EditorClassIdentifier: 
   m_SpriteData: {fileID: 11400000, guid: 945fc76ac0ce9a24e8482669260d7b99, type: 2}
-  m_AttackSpriteData: []
+  m_AttackSpriteData:
+  - {fileID: 11400000, guid: c6dfce514d04f084e9ccedb31599f5a2, type: 2}
   m_SpecialAttackSpriteDatas: []

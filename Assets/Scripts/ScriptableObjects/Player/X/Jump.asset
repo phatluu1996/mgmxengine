@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Jump
   m_EditorClassIdentifier: 
   m_SpriteData: {fileID: 11400000, guid: a206c15907663ff4ea93d6596957e156, type: 2}
-  m_AttackSpriteData: []
+  m_AttackSpriteData:
+  - {fileID: 11400000, guid: dcdfccfca21c87540b6fa0787afd781d, type: 2}
   m_SpecialAttackSpriteDatas: []

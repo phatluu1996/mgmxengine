@@ -52,6 +52,6 @@ public class PlayerJumpState : PlayerArialState
             Player.AirDash = true;
             StateMachine.To(States.Dash);
             return;
-        }
+        }        
     }
 }

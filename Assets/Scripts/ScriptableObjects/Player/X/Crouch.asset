@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Crouch
   m_EditorClassIdentifier: 
   m_SpriteData: {fileID: 11400000, guid: b3f7b2385046c89439288d461d31b7d9, type: 2}
-  m_AttackSpriteData: []
+  m_AttackSpriteData:
+  - {fileID: 11400000, guid: 91ca9f05afbf2ee40b918fc51b7e5a00, type: 2}
+  - {fileID: 11400000, guid: 8b97bbe5a0f0bb740b149db23e28aeac, type: 2}
   m_SpecialAttackSpriteDatas: []

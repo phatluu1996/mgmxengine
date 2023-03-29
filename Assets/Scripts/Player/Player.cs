@@ -14,7 +14,7 @@ public class Player : Entity, IDamageable
     private bool m_StartBeamDown;
     public bool StartBeamDown { get => m_StartBeamDown; set => m_StartBeamDown = value; }
     #endregion
-    
+
     #region Component
     [SerializeField]
     private SpriteDataSet m_CurrentSpriteDataSet;
@@ -36,7 +36,7 @@ public class Player : Entity, IDamageable
     private PlayerPhysicsData m_PhysicsData;
     [SerializeField]
     private PlayerController m_Controller;
-    public SpriteDataSet CurrentSpriteDataSet { get => m_CurrentSpriteDataSet; set => m_CurrentSpriteDataSet = value; }
+    // public SpriteDataSet CurrentSpriteDataSet { get => m_CurrentSpriteDataSet; set => m_CurrentSpriteDataSet = value; }
     public SpriteAnimate SpriteAnimate { get => m_SpriteAnimate; set => m_SpriteAnimate = value; }
     public PlayerStateMachine StateMachine { get => m_StateMachine; set => m_StateMachine = value; }
     public BoxCollider2D HitBox { get => m_HitBox; set => m_HitBox = value; }
@@ -48,11 +48,13 @@ public class Player : Entity, IDamageable
     public PlayerController Controller { get => m_Controller; set => m_Controller = value; }
     #endregion
 
-    #region Variables
+    #region Attack
     [SerializeField]
     private bool m_IsAttack;
     private int m_AttackIndex;
+    private float m_AttackTimer;    
     public bool IsAttack { get => m_IsAttack; set => m_IsAttack = value; }
+    public float AttackTimer { get => m_AttackTimer; set => m_AttackTimer = value; }
     public int AttackIndex { get => m_AttackIndex; set => m_AttackIndex = value; }
     #endregion
 
@@ -94,11 +96,15 @@ public class Player : Entity, IDamageable
     {
         base.Awake();
         m_Instance = this;
-        Application.targetFrameRate = 60;        
+        Application.targetFrameRate = 60;
         m_SpriteAnimate = new SpriteAnimate(Animator);
         m_InputHandler = new InputHandler();
         m_StateMachine = new PlayerStateMachine();
         m_StateManager = new PlayerStateManager(m_StateMachine, this, m_SpriteSetsManager);
+        if(!StartBeamDown){
+            CameraEngine.Instance.m_FollowModule.JumpToTarget();
+            CameraEngine.Instance.m_FollowModule.Enable = true;
+        }
         m_StateMachine.Init(StartBeamDown ? m_StateManager.BeamDown : m_StateManager.Idle);
         Controller.collisions.below = true;
     }
@@ -111,9 +117,8 @@ public class Player : Entity, IDamageable
     public override void Update()
     {
         base.Update();
-
+        if(GameManager.Instance.Paused) return;
         m_StateMachine.CurrentState.OnUpdate();
-
         Controller.Move(Velocity * Application.targetFrameRate * Time.deltaTime);
     }
 
@@ -156,6 +161,11 @@ public class Player : Entity, IDamageable
 
     public virtual void AnimationTransit(SpriteDataSet spriteDataSet, float normalizeTime)
     {
-        CurrentSpriteDataSet = spriteDataSet;
+
+    }
+
+    public virtual void AttackHandling(PlayerState playerState)
+    {
+        
     }
 }

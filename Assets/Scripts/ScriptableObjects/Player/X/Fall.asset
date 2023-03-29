@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Fall
   m_EditorClassIdentifier: 
   m_SpriteData: {fileID: 11400000, guid: c51b356ca9a196741ad2af9293584537, type: 2}
-  m_AttackSpriteData: []
+  m_AttackSpriteData:
+  - {fileID: 11400000, guid: 593c781a036f8e942a03b64ef42880d3, type: 2}
   m_SpecialAttackSpriteDatas: []

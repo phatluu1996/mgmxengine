@@ -202,7 +202,7 @@ SpriteRenderer:
   m_Size: {x: 96, y: 96}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &401121424632047724
@@ -249,6 +249,7 @@ MonoBehaviour:
   m_Controller: {fileID: 401121424632047734}
   m_IsAttack: 0
   m_DashTime: 0.7
+  m_AirDashTime: 0.5
   m_WallJumpFrames: 10
   m_LadderMask:
     serializedVersion: 2

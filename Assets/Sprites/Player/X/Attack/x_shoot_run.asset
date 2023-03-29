@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4ce1193e1be6d40a33aea2f1732524, type: 3}
+  m_Name: x_shoot_run
+  m_EditorClassIdentifier: 
+  m_AnimationClip: {fileID: 7400000, guid: 428a03d052be5e24eb589fac179f840c, type: 2}
+  m_UseAnimationLength: 0
+  m_damage: 0
+  m_StartTime: -1
+  m_TransitTime: 0
+  m_RepeatTime: -1
+  m_ContinueTime: -1

@@ -55,6 +55,6 @@ public class PlayerCrouchState : PlayerGroundedState
         }else if(!Input.Down.Hold){
             StateMachine.To(States.Idle);
             return;
-        }
+        }        
     }
 }

@@ -40,8 +40,8 @@ public class PlayerWallState : PlayerState
     }
 
     public override void OnUpdate()
-    {
-        base.OnUpdate();
+    {        
         Input.Check();
+        base.OnUpdate();
     }
 }

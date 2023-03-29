@@ -59,9 +59,41 @@ public class X : Player
         base.AnimationTransit(spriteDataSet, normalizeTime);
         if(IsAttack)
         {
-            SpriteAnimate.Animate(spriteDataSet.AttackSpriteDatas[AttackIndex], normalizeTime);
+            SpriteData sprite = spriteDataSet.AttackSpriteDatas[0];
+            SpriteAnimate.Animate(sprite, spriteDataSet, sprite.RealTransitTime(SpriteAnimate));
         }else{
-            SpriteAnimate.Animate(spriteDataSet.SpriteData, normalizeTime);
+            SpriteAnimate.Animate(spriteDataSet.SpriteData, spriteDataSet);
         }  
+    }
+
+    public override void AttackHandling(PlayerState playerState)
+    {        
+        
+        if(InputHandler.Attack.Pressed && !IsAttack && playerState.SpriteDataSet.AttackSpriteDatas.Length != 0){
+            IsAttack = true;
+            AttackTimer = 0;
+            SpriteData sprite = playerState.SpriteDataSet.AttackSpriteDatas[0];
+            SpriteAnimate.Animate(sprite, playerState.SpriteDataSet, sprite.RealStartTime(SpriteAnimate));
+        }
+
+        if(IsAttack){
+            AttackTimer += Time.deltaTime;
+            if(AttackTimer >= 0.15f && InputHandler.Attack.Pressed){
+                AttackTimer = 0;
+                if(SpriteAnimate.CurrentSpriteData.RepeatTime >= 0){
+                     SpriteData sprite = playerState.SpriteDataSet.AttackSpriteDatas[0];
+                     SpriteAnimate.Animate(sprite, playerState.SpriteDataSet, sprite.RepeatTime);
+                }    
+            }
+
+            float limitTime = 0.462f;
+            
+            if(AttackTimer >= limitTime){
+                IsAttack = false;
+                AttackTimer = 0;
+                SpriteData normalSprite = playerState.SpriteDataSet.SpriteData;
+                SpriteAnimate.Animate(normalSprite, playerState.SpriteDataSet, SpriteAnimate.CurrentSpriteData.RealContinueTime(SpriteAnimate));
+            }            
+        }
     }
 }

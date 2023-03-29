@@ -45,11 +45,11 @@ public class PlayerGroundedState : PlayerState
     }
 
     public override void OnUpdate()
-    {
-        base.OnUpdate();
+    {        
         CheckGround();
         States.ClimbLadder.CheckLadder();
         Input.Check();
+        base.OnUpdate();
         VelocicyY = Mathf.Clamp(VelocicyY - Physics.Gravity * Application.targetFrameRate * Time.deltaTime, -5.5f, 5.5f);
         if (Input.AxisXHold != 0)
         {

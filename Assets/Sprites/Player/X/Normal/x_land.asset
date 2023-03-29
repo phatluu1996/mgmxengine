@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: x_land
   m_EditorClassIdentifier: 
   m_AnimationClip: {fileID: 7400000, guid: 46e79debe4b114e48a7e90fdb8206a00, type: 2}
-  m_UseAnimationLength: 1
+  m_UseAnimationLength: 0
   m_damage: 0
+  m_TransitTime: 0
+  m_RepeatTime: 0

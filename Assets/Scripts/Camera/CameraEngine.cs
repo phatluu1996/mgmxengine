@@ -30,24 +30,31 @@ public class CameraEngine : MonoBehaviour
     [Header("Camera Follow Module")]
     public FollowModule m_FollowModule;
 
-    [Header("Camera Room Module")] 
+    [Header("Camera Room Module")]
     public RoomModule m_RoomModule;
 
     public void Awake()
-    {        
+    {
         m_Instance = this;
-        m_FollowModule = new FollowModule(m_Target, Vector2.up * 23, this, new Vector2(60f, 50f));
-        // Position = (Vector2)m_CameraFollow.Target.position + m_CameraFollow.TargetOffset;
+        if(m_Target == null){
+            Debug.Log("No target for camera");
+            return;
+        }
+        SetupModule();        
+    }
+
+    public void SetupModule(){
+        m_FollowModule = new FollowModule(m_Target, Vector2.up * 23, this, new Vector2(60f, 50f));     
     }
 
     public void LateUpdate()
     {
         m_FollowModule?.Excute();
     }
-    
+
     public void OnDrawGizmos()
     {
-        Utils.DrawBox(Position, m_CameraSize, Color.yellow);        
+        Utils.DrawBox(Position, m_CameraSize, Color.yellow);
         m_FollowModule?.DrawGizmos();
     }
 }

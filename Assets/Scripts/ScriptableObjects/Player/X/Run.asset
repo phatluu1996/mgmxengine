@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Run
   m_EditorClassIdentifier: 
   m_SpriteData: {fileID: 11400000, guid: 4215cafd7eb944a4bbe1331c357135be, type: 2}
-  m_AttackSpriteData: []
-  m_SpecialSpriteData: []
+  m_AttackSpriteData:
+  - {fileID: 11400000, guid: a94b182dc4fd3f8499bfe6c8a954e700, type: 2}
+  m_SpecialAttackSpriteDatas: []

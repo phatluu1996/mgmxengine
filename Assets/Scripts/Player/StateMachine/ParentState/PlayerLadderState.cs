@@ -37,9 +37,9 @@ public class PlayerLadderState : PlayerState
     }
 
     public override void OnUpdate()
-    {
-        base.OnUpdate();
-        Input.Check();        
+    {        
+        Input.Check();  
+        base.OnUpdate();     
     }
 
     public void CheckLadder(){

@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc4ce1193e1be6d40a33aea2f1732524, type: 3}
   m_Name: x_run
   m_EditorClassIdentifier: 
-  m_AnimationClip: {fileID: 7400000, guid: 47112506d59cdf74287980b67f28d517, type: 2}
+  m_AnimationClip: {fileID: 7400000, guid: 80e6e493ac7d6a040ab1d033526b88ba, type: 2}
   m_UseAnimationLength: 0
   m_damage: 0
+  m_StartTime: 0
+  m_TransitTime: 0
+  m_RepeatTime: 0
+  m_ContinueTime: 0

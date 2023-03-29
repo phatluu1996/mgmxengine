@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Climb
   m_EditorClassIdentifier: 
   m_SpriteData: {fileID: 11400000, guid: 28c984027b73aaa4d91482d1283d4f84, type: 2}
-  m_AttackSpriteData: []
+  m_AttackSpriteData:
+  - {fileID: 11400000, guid: acb253feec0b2b9479e57a5a20d559cf, type: 2}
   m_SpecialAttackSpriteDatas: []

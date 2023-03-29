@@ -68,6 +68,6 @@ public class PlayerFallState : PlayerArialState
             Player.AirDash = true;
             StateMachine.To(States.Dash);
             return;
-        }
+        }        
     }
 }

@@ -43,11 +43,13 @@ public class PlayerArialState : PlayerState
     }
 
     public override void OnUpdate()
-    {
-        base.OnUpdate();
+    {        
         States.ClimbLadder.CheckLadder();
+        Input.Check();
+        base.OnUpdate();
         if (m_LeaveWall)
         {
+            Input.AxisXUnlocked = false;
             if (m_Jump)
             {
                 VelocicyX = -(Player.DashJump ? Physics.DashSpeed : Physics.RunSpeed) * Player.DirX;  
@@ -75,8 +77,7 @@ public class PlayerArialState : PlayerState
         }
         else
         {
-            Input.Check();
-
+            Input.AxisXUnlocked = true;
             if (Input.AxisXHold != 0)
             {
                 Player.DirX = Input.AxisXHold;

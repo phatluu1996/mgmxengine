@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Idle
   m_EditorClassIdentifier: 
   m_SpriteData: {fileID: 11400000, guid: a4d62c434beceff4d9627b8267bf5e92, type: 2}
-  m_AttackSpriteData: []
-  m_SpecialSpriteData: []
+  m_AttackSpriteData:
+  - {fileID: 11400000, guid: 1052f331801438c4a892a1fd037ff6fb, type: 2}
+  - {fileID: 11400000, guid: 718c1851c2a862a4188fe502d92a6932, type: 2}
+  m_SpecialAttackSpriteDatas: []

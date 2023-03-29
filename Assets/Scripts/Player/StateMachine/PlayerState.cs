@@ -7,10 +7,9 @@ public class PlayerState : AbstractState
     private Player m_Player;
     private PlayerStateMachine m_StateMachine;
     private SpriteDataSet m_SpriteDataSet;
-
     public PlayerStateMachine StateMachine { get => m_StateMachine; set => m_StateMachine = value; }
     public Player Player { get => m_Player; set => m_Player = value; }
-    public SpriteDataSet SpriteData { get => m_SpriteDataSet; set => m_SpriteDataSet = value; }
+    public SpriteDataSet SpriteDataSet { get => m_SpriteDataSet; set => m_SpriteDataSet = value; }
     public InputHandler Input { get => Player.InputHandler; }
     public PlayerState PrevState { get => Player.StateMachine.PrevState; }
     public PlayerStateManager States { get => Player.StateManager; }
@@ -38,7 +37,7 @@ public class PlayerState : AbstractState
         OnEnter();
         if (!stopAttack)
         {
-            Player.AnimationTransit(SpriteData, normalizeTime);
+            Player.AnimationTransit(SpriteDataSet, normalizeTime);
         }
         else
         {
@@ -55,7 +54,7 @@ public class PlayerState : AbstractState
 
     public override void OnUpdate()
     {
-
+        Player.AttackHandling(this);
     }
 
     public override void OnFinish(int index)

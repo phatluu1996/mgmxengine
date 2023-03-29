@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: WallSlide
   m_EditorClassIdentifier: 
   m_SpriteData: {fileID: 11400000, guid: 5995057180a02b04c8c0c06e819ca8ae, type: 2}
-  m_AttackSpriteData: []
+  m_AttackSpriteData:
+  - {fileID: 11400000, guid: 2a709809ed30fad48ab958011cabc69a, type: 2}
   m_SpecialAttackSpriteDatas: []
