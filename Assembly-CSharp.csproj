@@ -42,6 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Player\Input\InputKey.cs" />
+     <Compile Include="Assets\Scripts\Player\StateMachine\SubState\PlayerBeamDownState.cs" />
      <Compile Include="Assets\Scripts\Core\Entity.cs" />
      <Compile Include="Assets\Scripts\Core\SpriteDataSet.cs" />
      <Compile Include="Assets\Scripts\Core\IState.cs" />
@@ -64,8 +65,10 @@
      <Compile Include="Assets\Scripts\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Player\StateMachine\PlayerStateMachine.cs" />
      <Compile Include="Assets\Scripts\Player\StateMachine\SubState\PlayerClimbUpLadderState.cs" />
+     <Compile Include="Assets\Scripts\Camera\Modules\Room\Room.cs" />
      <Compile Include="Assets\Scripts\Core\Utils.cs" />
      <Compile Include="Assets\Scripts\Player\StateMachine\SubState\PlayerIdleState.cs" />
+     <Compile Include="Assets\Scripts\Camera\Modules\CameraEngineModule.cs" />
      <Compile Include="Assets\Scripts\Player\Input\InputHandler.cs" />
      <Compile Include="Assets\Scripts\Player\StateMachine\SubState\PlayerCrouchState.cs" />
      <Compile Include="Assets\Scripts\Core\SpriteData.cs" />
@@ -77,6 +80,7 @@
      <Compile Include="Assets\Scripts\Player\StateMachine\SubState\PlayerClimbDownLadderState.cs" />
      <Compile Include="Assets\Scripts\Player\X.cs" />
      <Compile Include="Assets\Scripts\Player\StateMachine\SubState\PlayerJumpState.cs" />
+     <Compile Include="Assets\Scripts\Camera\Modules\Room\RoomModule.cs" />
      <Compile Include="Assets\Scripts\Player\StateMachine\ParentState\PlayerArialState.cs" />
      <Compile Include="Assets\Scripts\Player\StateMachine\PlayerStateManager.cs" />
      <Compile Include="Assets\Scripts\Core\Singleton.cs" />
@@ -84,10 +88,6 @@
      <Compile Include="Assets\Scripts\Player\StateMachine\SubState\PlayerClimbLadderState.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraEngine.cs" />
      <Compile Include="Assets\Scripts\Player\StateMachine\SubState\PlayerDashState.cs" />
-     <Compile Include="Assets\Scripts\Camera\Modules\CameraEngineModule.cs" />
-     <Compile Include="Assets\Scripts\Player\StateMachine\SubState\PlayerBeamDownState.cs" />
-     <Compile Include="Assets\Scripts\Camera\Modules\Room\RoomModule.cs" />
-     <Compile Include="Assets\Scripts\Camera\Modules\Room\Room.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.1.16f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>
