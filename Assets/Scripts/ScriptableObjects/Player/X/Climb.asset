@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a250cde82f6c454f886f592876c0f05, type: 3}
   m_Name: Climb
   m_EditorClassIdentifier: 
-  m_SpriteData: {fileID: 11400000, guid: 28c984027b73aaa4d91482d1283d4f84, type: 2}
+  m_SpriteDatas:
+  - {fileID: 11400000, guid: 28c984027b73aaa4d91482d1283d4f84, type: 2}
+  - {fileID: 11400000, guid: 6da5f3dcf25ef48428f9ec05ba0b35d9, type: 2}
   m_AttackSpriteData:
   - {fileID: 11400000, guid: acb253feec0b2b9479e57a5a20d559cf, type: 2}
+  - {fileID: 11400000, guid: acb253feec0b2b9479e57a5a20d559cf, type: 2}
+  m_ChargeAttackSpriteData: []
   m_SpecialAttackSpriteDatas: []

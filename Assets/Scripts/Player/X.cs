@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class X : Player
-{    
+{
     public override void OnBecameInvisible()
     {
         base.OnBecameInvisible();
@@ -57,43 +57,94 @@ public class X : Player
     public override void AnimationTransit(SpriteDataSet spriteDataSet, float normalizeTime)
     {
         base.AnimationTransit(spriteDataSet, normalizeTime);
-        if(IsAttack)
+        if (IsAttack)
         {
             SpriteData sprite = spriteDataSet.AttackSpriteDatas[0];
             SpriteAnimate.Animate(sprite, spriteDataSet, sprite.RealTransitTime(SpriteAnimate));
-        }else{
-            SpriteAnimate.Animate(spriteDataSet.SpriteData, spriteDataSet);
-        }  
+        }
+        else
+        {
+            SpriteAnimate.Animate(spriteDataSet.SpriteDatas[0], spriteDataSet);
+        }
+    }
+
+    public override void AnimationConnect(PlayerState playerState, SpriteDataSet spriteDataSet)
+    {
+        base.AnimationConnect(playerState, spriteDataSet);
+        if (IsAttack)
+        {
+            SpriteData sprite = spriteDataSet.AttackSpriteDatas[playerState.m_AnimationIndex];
+            if (sprite != null)
+            {
+                SpriteAnimate.Animate(sprite, spriteDataSet);
+            }
+        }
+        else
+        {
+            SpriteData sprite = spriteDataSet.SpriteDatas[playerState.m_AnimationIndex];
+            if (sprite != null)
+            {
+                SpriteAnimate.Animate(sprite, spriteDataSet);
+            }
+        }
+    }
+
+    public override void Charge(){
+        if(InputHandler.Attack.Hold){
+            ChargeTimer += Time.deltaTime * Application.targetFrameRate;
+            if(ChargeTimer >= 30f && ChargeTimer < 80f){
+                AttackIndex = 1;
+                Charge_1.speed = 1;
+                Charge_1.gameObject.SetActive(true);
+            }else if(ChargeTimer >= 80f){
+                AttackIndex = 2; 
+                Charge_1.speed = 4f/3f;     
+                Charge_2.gameObject.SetActive(true);                       
+            }
+        }
     }
 
     public override void AttackHandling(PlayerState playerState)
-    {        
-        
-        if(InputHandler.Attack.Pressed && !IsAttack && playerState.SpriteDataSet.AttackSpriteDatas.Length != 0){
+    {
+
+        Charge();
+
+        if (InputHandler.Attack.Released && !IsAttack && playerState.SpriteDataSet.AttackSpriteDatas.Length != 0)
+        {
             IsAttack = true;
             AttackTimer = 0;
-            SpriteData sprite = playerState.SpriteDataSet.AttackSpriteDatas[0];
+            ChargeTimer = 0;
+            AttackIndex = 0;
+            Charge_1.gameObject.SetActive(false);
+            Charge_2.gameObject.SetActive(false);
+            SpriteData sprite = playerState.SpriteDataSet.AttackSpriteDatas[playerState.m_AnimationIndex];
             SpriteAnimate.Animate(sprite, playerState.SpriteDataSet, sprite.RealStartTime(SpriteAnimate));
         }
 
-        if(IsAttack){
+        if (IsAttack)
+        {
             AttackTimer += Time.deltaTime;
-            if(AttackTimer >= 0.15f && InputHandler.Attack.Pressed){
+            if (AttackTimer >= 0.15f && InputHandler.Attack.Pressed)
+            {
                 AttackTimer = 0;
-                if(SpriteAnimate.CurrentSpriteData.RepeatTime >= 0){
-                     SpriteData sprite = playerState.SpriteDataSet.AttackSpriteDatas[0];
-                     SpriteAnimate.Animate(sprite, playerState.SpriteDataSet, sprite.RepeatTime);
-                }    
+                ChargeTimer = 0;
+                AttackIndex = 0;
+                if (SpriteAnimate.CurrentSpriteData.RepeatTime >= 0)
+                {
+                    SpriteData sprite = playerState.SpriteDataSet.AttackSpriteDatas[playerState.m_AnimationIndex];
+                    SpriteAnimate.Animate(sprite, playerState.SpriteDataSet, sprite.RepeatTime);
+                }
             }
 
             float limitTime = 0.462f;
-            
-            if(AttackTimer >= limitTime){
+
+            if (AttackTimer >= limitTime)
+            {
                 IsAttack = false;
                 AttackTimer = 0;
-                SpriteData normalSprite = playerState.SpriteDataSet.SpriteData;
+                SpriteData normalSprite = playerState.SpriteDataSet.SpriteDatas[playerState.m_AnimationIndex];
                 SpriteAnimate.Animate(normalSprite, playerState.SpriteDataSet, SpriteAnimate.CurrentSpriteData.RealContinueTime(SpriteAnimate));
-            }            
+            }
         }
     }
 }

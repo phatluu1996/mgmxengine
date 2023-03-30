@@ -38,16 +38,25 @@ public class PlayerClimbLadderState : PlayerLadderState
     public override void OnUpdate()
     {
         base.OnUpdate();
-        CheckLadder();
-        VelocicyY = Input.AxisYHold * Physics.ClimbLadderSpeed;
-        if (Input.AxisYHold != 0 || Player.IsAttack)
+        CheckLadder();    
+        if (Input.AxisXHold != 0)
         {
+            Player.DirX = Input.AxisXHold;
+        }    
+        VelocicyY = Input.AxisYHold * Physics.ClimbLadderSpeed * (!Player.IsAttack).GetHashCode();
+        if(Input.AxisYPressed != 0){
             if (Input.AxisYHold < 0)
             {
-                Animator.SetBool("climb_downward", true);
+                m_AnimationIndex = 0;
+                Player.SpriteAnimate.Animate(SpriteDataSet.SpriteDatas[m_AnimationIndex], SpriteDataSet);
             }else{
-                Animator.SetBool("climb_downward", false);
+                m_AnimationIndex = 1;
+                Player.SpriteAnimate.Animate(SpriteDataSet.SpriteDatas[m_AnimationIndex], SpriteDataSet);
             }
+        }
+
+        if (Input.AxisYHold != 0 || Player.IsAttack)
+        {            
             Animator.speed = 1;
         }
         else

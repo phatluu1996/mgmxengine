@@ -1492,6 +1492,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: x_attack_66
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1440
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1458333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a94545f1a31b7584faa289381c0cef4c
+      internalID: -615763078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: x_attack_67
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1458333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d10d2282c489c24b8575a40babeba9c
+      internalID: -460436592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: x_attack_68
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 768
+        width: 96
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1458333}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b2734c8db8cb1340bd9a69da472f305
+      internalID: 392538555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1512,6 +1575,8 @@ TextureImporter:
       x_attack_43: 1726897333
       x_attack_49: 82541664
       x_attack_2: 1794436569
+      x_attack_68: 392538555
+      x_attack_67: -460436592
       x_attack_20: 1378820134
       x_attack_1: 523672097
       x_attack_33: 989974109
@@ -1569,6 +1634,7 @@ TextureImporter:
       x_attack_13: 736895446
       x_attack_48: 2044898078
       x_attack_64: 915852693
+      x_attack_66: -615763078
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

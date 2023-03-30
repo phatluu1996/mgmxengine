@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a250cde82f6c454f886f592876c0f05, type: 3}
   m_Name: Idle
   m_EditorClassIdentifier: 
-  m_SpriteData: {fileID: 11400000, guid: a4d62c434beceff4d9627b8267bf5e92, type: 2}
+  m_SpriteDatas:
+  - {fileID: 11400000, guid: a4d62c434beceff4d9627b8267bf5e92, type: 2}
   m_AttackSpriteData:
   - {fileID: 11400000, guid: 1052f331801438c4a892a1fd037ff6fb, type: 2}
+  m_ChargeAttackSpriteData:
   - {fileID: 11400000, guid: 718c1851c2a862a4188fe502d92a6932, type: 2}
   m_SpecialAttackSpriteDatas: []

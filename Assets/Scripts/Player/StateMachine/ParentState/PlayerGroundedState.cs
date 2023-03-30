@@ -50,7 +50,9 @@ public class PlayerGroundedState : PlayerState
         States.ClimbLadder.CheckLadder();
         Input.Check();
         base.OnUpdate();
-        VelocicyY = Mathf.Clamp(VelocicyY - Physics.Gravity * Application.targetFrameRate * Time.deltaTime, -5.5f, 5.5f);
+        
+        VelocicyY = Mathf.Clamp(VelocicyY - Physics.Gravity * Application.targetFrameRate * Time.deltaTime, -2.5f, 5.5f);
+        
         if (Input.AxisXHold != 0)
         {
             Player.DirX = Input.AxisXHold;

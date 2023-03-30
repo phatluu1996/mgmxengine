@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a250cde82f6c454f886f592876c0f05, type: 3}
   m_Name: ClimbDown
   m_EditorClassIdentifier: 
-  m_SpriteData: {fileID: 11400000, guid: f15538d31488ad743af672aeb87ff7df, type: 2}
+  m_SpriteDatas:
+  - {fileID: 11400000, guid: f15538d31488ad743af672aeb87ff7df, type: 2}
   m_AttackSpriteData: []
+  m_ChargeAttackSpriteData: []
   m_SpecialAttackSpriteDatas: []

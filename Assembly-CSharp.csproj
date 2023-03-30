@@ -83,6 +83,7 @@
      <Compile Include="Assets\Scripts\Player\StateMachine\SubState\PlayerClimbLadderState.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraEngine.cs" />
      <Compile Include="Assets\Scripts\Player\StateMachine\SubState\PlayerDashState.cs" />
+     <Compile Include="Assets\Scripts\Core\ObjectPool.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:\UnityProjects\2022.1.16f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

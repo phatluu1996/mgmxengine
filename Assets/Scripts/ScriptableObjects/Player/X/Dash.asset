@@ -12,6 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a250cde82f6c454f886f592876c0f05, type: 3}
   m_Name: Dash
   m_EditorClassIdentifier: 
-  m_SpriteData: {fileID: 11400000, guid: 26cd80cc05722e04082df8d09dcfdcf6, type: 2}
-  m_AttackSpriteData: []
+  m_SpriteDatas:
+  - {fileID: 11400000, guid: d7cf9f736b3580e48a4c0e1eddb197dd, type: 2}
+  - {fileID: 11400000, guid: 26cd80cc05722e04082df8d09dcfdcf6, type: 2}
+  - {fileID: 11400000, guid: cd6c617ee1186534da1337d7d2eaf063, type: 2}
+  m_AttackSpriteData:
+  - {fileID: 11400000, guid: 03c13c36245d04d4eb84b133e1b1479c, type: 2}
+  - {fileID: 11400000, guid: b683a69563c3b2f448ad3a410c7d59b5, type: 2}
+  - {fileID: 11400000, guid: 0cf1b876d9bc4904796f64054983924d, type: 2}
+  m_ChargeAttackSpriteData: []
   m_SpecialAttackSpriteDatas: []

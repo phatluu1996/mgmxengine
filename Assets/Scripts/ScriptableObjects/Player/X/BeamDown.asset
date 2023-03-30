@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a250cde82f6c454f886f592876c0f05, type: 3}
   m_Name: BeamDown
   m_EditorClassIdentifier: 
-  m_SpriteData: {fileID: 11400000, guid: 1cd05d71a94df1d4fa42e7fa8a76824c, type: 2}
+  m_SpriteDatas:
+  - {fileID: 11400000, guid: 1cd05d71a94df1d4fa42e7fa8a76824c, type: 2}
   m_AttackSpriteData: []
+  m_ChargeAttackSpriteData: []
   m_SpecialAttackSpriteDatas: []

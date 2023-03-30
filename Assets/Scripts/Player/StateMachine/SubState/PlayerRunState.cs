@@ -23,8 +23,7 @@ public class PlayerRunState : PlayerGroundedState
 
     public override void OnExit()
     {
-        base.OnExit();
-        Player.Animator.SetBool("run_direct", false);
+        base.OnExit();                
     }
 
     public override void OnFinish(int index)
@@ -34,7 +33,11 @@ public class PlayerRunState : PlayerGroundedState
 
     public override void OnTrigger(int index)
     {
-        base.OnTrigger(index);
+        base.OnTrigger(index);      
+        if(index == -1){
+            m_AnimationIndex++;
+            Player.AnimationConnect(this, this.SpriteDataSet);
+        }  
     }
 
     public override void OnUpdate()

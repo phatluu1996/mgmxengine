@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a250cde82f6c454f886f592876c0f05, type: 3}
   m_Name: WallJump
   m_EditorClassIdentifier: 
-  m_SpriteData: {fileID: 11400000, guid: 9bcf46a72fb131c40bff177041e57ffb, type: 2}
+  m_SpriteDatas:
+  - {fileID: 11400000, guid: 9bcf46a72fb131c40bff177041e57ffb, type: 2}
   m_AttackSpriteData:
   - {fileID: 11400000, guid: 70e832d2c9b143c4fa4656ffd94affda, type: 2}
+  m_ChargeAttackSpriteData: []
   m_SpecialAttackSpriteDatas: []

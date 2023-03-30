@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerState : AbstractState
 {
+    public int m_AnimationIndex;
     private Player m_Player;
     private PlayerStateMachine m_StateMachine;
     private SpriteDataSet m_SpriteDataSet;
@@ -28,6 +29,7 @@ public class PlayerState : AbstractState
 
     public override void OnEnter()
     {
+        m_AnimationIndex = 0;
         Timer = 0;
         AnimationFinish = false;
     }
@@ -64,6 +66,6 @@ public class PlayerState : AbstractState
 
     public override void OnTrigger(int index)
     {
-
+        
     }
 }

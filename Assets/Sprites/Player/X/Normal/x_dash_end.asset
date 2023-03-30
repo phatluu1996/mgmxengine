@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc4ce1193e1be6d40a33aea2f1732524, type: 3}
-  m_Name: x_climb
+  m_Name: x_dash_end
   m_EditorClassIdentifier: 
-  m_AnimationClip: {fileID: 7400000, guid: 10daeb2dd7730a9448356ecd8b5c55f4, type: 2}
+  m_AnimationClip: {fileID: 7400000, guid: ab2b8e4631db3cc40a20dc6eacd55a34, type: 2}
   m_UseAnimationLength: 0
   m_damage: 0
+  m_StartTime: 0
   m_TransitTime: 0
   m_RepeatTime: 0
+  m_ContinueTime: 0

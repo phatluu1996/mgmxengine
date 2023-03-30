@@ -35,8 +35,11 @@ public class Player : Entity, IDamageable
     [SerializeField]
     private PlayerPhysicsData m_PhysicsData;
     [SerializeField]
+    private Animator m_Charge_1;
+    [SerializeField]
+    private Animator m_Charge_2;
+    [SerializeField]
     private PlayerController m_Controller;
-    // public SpriteDataSet CurrentSpriteDataSet { get => m_CurrentSpriteDataSet; set => m_CurrentSpriteDataSet = value; }
     public SpriteAnimate SpriteAnimate { get => m_SpriteAnimate; set => m_SpriteAnimate = value; }
     public PlayerStateMachine StateMachine { get => m_StateMachine; set => m_StateMachine = value; }
     public BoxCollider2D HitBox { get => m_HitBox; set => m_HitBox = value; }
@@ -45,17 +48,22 @@ public class Player : Entity, IDamageable
     public SpriteSetsManager SpriteSetsManager { get => m_SpriteSetsManager; set => m_SpriteSetsManager = value; }
     public InputHandler InputHandler { get => m_InputHandler; set => m_InputHandler = value; }
     public PlayerPhysicsData PhysicsData { get => m_PhysicsData; set => m_PhysicsData = value; }
-    public PlayerController Controller { get => m_Controller; set => m_Controller = value; }
+    public PlayerController Controller { get => m_Controller; set => m_Controller = value; }    
+    public Animator Charge_1 { get => m_Charge_1; set => m_Charge_1 = value; }
+    public Animator Charge_2 { get => m_Charge_2; set => m_Charge_2 = value; }
     #endregion
 
     #region Attack
     [SerializeField]
     private bool m_IsAttack;
     private int m_AttackIndex;
-    private float m_AttackTimer;    
+    private float m_AttackTimer; 
+    [SerializeField]
+    private float m_ChargeTimer;
     public bool IsAttack { get => m_IsAttack; set => m_IsAttack = value; }
     public float AttackTimer { get => m_AttackTimer; set => m_AttackTimer = value; }
     public int AttackIndex { get => m_AttackIndex; set => m_AttackIndex = value; }
+    public float ChargeTimer { get => m_ChargeTimer; set => m_ChargeTimer = value; }
     #endregion
 
     #region Dash
@@ -164,8 +172,16 @@ public class Player : Entity, IDamageable
 
     }
 
+    public virtual void AnimationConnect(PlayerState playerState, SpriteDataSet spriteDataSet){
+        
+    }
+
     public virtual void AttackHandling(PlayerState playerState)
     {
         
+    }
+
+    public virtual void Charge(){
+
     }
 }
