@@ -1,11 +1,12 @@
+using System;
 using UnityEngine;
-
+[Serializable]
 public abstract class CameraEngineModule
 {
     private bool m_Enable = false;    
-    public CameraEngine m_CameraEngine;
+    [HideInInspector]
+    public CameraEngine m_CameraEngine;    
     public bool Enable { get => m_Enable; set => m_Enable = value; }
-
     protected abstract void Update();
 
     public virtual void Excute()

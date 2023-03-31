@@ -3,18 +3,20 @@ using UnityEngine;
 
 [Serializable]
 public class Rectangle
-{
+{    
     private Bounds m_Bounds;
+    [SerializeField]
     private Vector2 m_Center;
+    [SerializeField]
     private Vector2 m_Size;
     private Vector2 m_TL;
     private Vector2 m_TR;
     private Vector2 m_BL;
     private Vector2 m_BR;
 
-    public Vector2 Center => m_Center;
+    public Vector2 Center { get => m_Center; set => m_Center = value; }
 
-    public Vector2 Size => m_Size;
+    public Vector2 Size { get => m_Size; set => m_Size = value; }
 
     public Vector2 TL => new Vector2(m_Center.x - m_Size.x / 2, m_Center.y + m_Size.y / 2);
 
@@ -23,7 +25,7 @@ public class Rectangle
     public Vector2 BL => new Vector2(m_Center.x - m_Size.x / 2, m_Center.y - m_Size.y / 2);
 
     public Vector2 BR => new Vector2(m_Center.x + m_Size.x / 2, m_Center.y - m_Size.y / 2);
-    
+
     public Rectangle(Vector2 center, Vector2 size)
     {
         m_Center = center;
@@ -41,7 +43,7 @@ public class Rectangle
         m_Bounds.center = newCenter;
         m_Center = newCenter;
     }
-    
+
     public void Update(Vector2 newCenter, Vector2 newSize)
     {
         m_Bounds.center = newCenter;

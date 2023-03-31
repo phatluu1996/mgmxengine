@@ -6,7 +6,9 @@ using UnityEngine;
 [Serializable]
 public class Room
 {
+    [HideInInspector]
     public RoomModule m_RoomModule;
+    [SerializeField]
     private Rectangle m_Rectangle;
     public Rectangle Rectangle { get => m_Rectangle; set => m_Rectangle = value; }
 
