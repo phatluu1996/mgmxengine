@@ -43,6 +43,7 @@
      <Compile Include="Assets\Scripts\Core\SpriteDataSet.cs" />
      <Compile Include="Assets\Scripts\Core\IState.cs" />
      <Compile Include="Assets\Scripts\Player\StateMachine\SubState\PlayerFallState.cs" />
+     <Compile Include="Assets\Scripts\Camera\Editors\CameraEngineEditor.cs" />
      <Compile Include="Assets\Scripts\Player\StateMachine\SubState\PlayerWallJumpState.cs" />
      <Compile Include="Assets\Scripts\Core\PlayerPhysicsData.cs" />
      <Compile Include="Assets\Scripts\Player\StateMachine\SubState\PlayerLandState.cs" />
@@ -84,7 +85,6 @@
      <Compile Include="Assets\Scripts\Player\StateMachine\SubState\PlayerClimbLadderState.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraEngine.cs" />
      <Compile Include="Assets\Scripts\Player\StateMachine\SubState\PlayerDashState.cs" />
-     <Compile Include="Assets\Scripts\Camera\Editors\CameraEngineEditor.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:\UnityProjects\2022.1.16f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

@@ -13250,7 +13250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 332, y: -12, z: -10}
+  m_LocalPosition: {x: 16, y: 16, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13269,6 +13269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be3251b69f354bc7951a11f12e3415d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_HandleSize: 8
   m_CameraSize: {x: 352, y: 256}
   m_Target: {fileID: 1651676350}
   m_FollowModule:
@@ -13280,19 +13281,93 @@ MonoBehaviour:
     m_DeadzoneRectangle:
       m_Center: {x: 0, y: 0}
       m_Size: {x: 0, y: 0}
+      m_TO: 0
+      m_BO: 0
+      m_LO: 0
+      m_RO: 0
+      CL: {x: 0, y: 0}
+      CR: {x: 0, y: 0}
+      CT: {x: 0, y: 0}
+      CB: {x: 0, y: 0}
     m_StartOutOfDeadZone: 0
     m_WaitTimeToApproachTarget: 0
   m_RoomModule:
     m_CameraEngine: {fileID: 0}
-    m_DefaultSize: {x: 0, y: 0}
+    m_DefaultSize: {x: 352, y: 256}
     m_Rooms:
     - m_RoomModule:
         m_CameraEngine: {fileID: 0}
-        m_DefaultSize: {x: 0, y: 0}
-        m_Rooms: []
+        m_DefaultSize: {x: 352, y: 256}
+        m_Rooms:
+        - m_RoomModule:
+            m_CameraEngine: {fileID: 0}
+            m_DefaultSize: {x: 352, y: 256}
+            m_Rooms:
+            - m_RoomModule:
+                m_CameraEngine: {fileID: 0}
+                m_DefaultSize: {x: 352, y: 256}
+                m_Rooms:
+                - m_RoomModule:
+                    m_CameraEngine: {fileID: 0}
+                    m_DefaultSize: {x: 352, y: 256}
+                    m_Rooms:
+                    - m_RoomModule:
+                        m_DefaultSize: {x: 352, y: 256}
+                      m_Rectangle:
+                        m_Center: {x: -263.8437, y: 72.650246}
+                        m_Size: {x: 352, y: 256}
+                        m_TO: 0
+                        m_BO: 0
+                        m_LO: 0
+                        m_RO: 0
+                        CL: {x: -439.84363, y: 72.650246}
+                        CR: {x: -87.84367, y: 72.650246}
+                        CT: {x: -263.8437, y: 200.6502}
+                        CB: {x: -263.8437, y: -55.34976}
+                  m_Rectangle:
+                    m_Center: {x: -263.8437, y: 72.650246}
+                    m_Size: {x: 352, y: 256}
+                    m_TO: 0
+                    m_BO: 0
+                    m_LO: 0
+                    m_RO: 0
+                    CL: {x: -439.84363, y: 72.650246}
+                    CR: {x: -87.84367, y: 72.650246}
+                    CT: {x: -263.8437, y: 200.6502}
+                    CB: {x: -263.8437, y: -55.34976}
+              m_Rectangle:
+                m_Center: {x: -263.8437, y: 72.650246}
+                m_Size: {x: 352, y: 256}
+                m_TO: 0
+                m_BO: 0
+                m_LO: 0
+                m_RO: 0
+                CL: {x: -439.84363, y: 72.650246}
+                CR: {x: -87.84367, y: 72.650246}
+                CT: {x: -263.8437, y: 200.6502}
+                CB: {x: -263.8437, y: -55.34976}
+          m_Rectangle:
+            m_Center: {x: -263.8437, y: 72.650246}
+            m_Size: {x: 352, y: 256}
+            m_TO: 0
+            m_BO: 0
+            m_LO: 0
+            m_RO: 0
+            CL: {x: -439.84363, y: 72.650246}
+            CR: {x: -87.84367, y: 72.650246}
+            CT: {x: -263.8437, y: 200.6502}
+            CB: {x: -263.8437, y: -55.34976}
       m_Rectangle:
-        m_Center: {x: 16, y: 16}
+        m_Center: {x: -40.976585, y: 7.6465607}
         m_Size: {x: 352, y: 256}
+        m_TO: 0
+        m_BO: 0
+        m_LO: 0
+        m_RO: 0
+        CL: {x: -216.9766, y: 7.6465607}
+        CR: {x: 135.0234, y: 7.6465607}
+        CT: {x: -40.976585, y: 135.64651}
+        CB: {x: -40.976585, y: -120.35344}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -18153,6 +18228,34 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 401121422766556953, guid: 33c6acf8d55a47244bd07190cf68c8d5, type: 3}
+      propertyPath: m_Size.x
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 401121422766556953, guid: 33c6acf8d55a47244bd07190cf68c8d5, type: 3}
+      propertyPath: m_Size.y
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 401121422766556953, guid: 33c6acf8d55a47244bd07190cf68c8d5, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 401121422766556953, guid: 33c6acf8d55a47244bd07190cf68c8d5, type: 3}
+      propertyPath: m_Offset.y
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 401121424632047725, guid: 33c6acf8d55a47244bd07190cf68c8d5, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 401121424632047725, guid: 33c6acf8d55a47244bd07190cf68c8d5, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 401121424632047725, guid: 33c6acf8d55a47244bd07190cf68c8d5, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 401121424632047727, guid: 33c6acf8d55a47244bd07190cf68c8d5, type: 3}
       propertyPath: m_Name
       value: X
@@ -18171,7 +18274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 401121424632047730, guid: 33c6acf8d55a47244bd07190cf68c8d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 32
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 401121424632047730, guid: 33c6acf8d55a47244bd07190cf68c8d5, type: 3}
       propertyPath: m_LocalPosition.y

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraEngine : MonoBehaviour
 {
+    [SerializeField]
+    private float m_HandleSize = 8;    
     private static CameraEngine m_Instance;
     public static CameraEngine Instance { get => m_Instance; set => m_Instance = value; }
     [SerializeField]
@@ -26,6 +28,9 @@ public class CameraEngine : MonoBehaviour
             transform.position = pos;
         }
     }
+
+    public float HandleSize { get => m_HandleSize; set => m_HandleSize = value; }
+
     public Transform m_Target;
     [Header("Camera Follow Module")]
     public FollowModule m_FollowModule;

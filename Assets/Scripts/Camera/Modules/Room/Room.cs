@@ -12,9 +12,13 @@ public class Room
     private Rectangle m_Rectangle;
     public Rectangle Rectangle { get => m_Rectangle; set => m_Rectangle = value; }
 
+
+    public Room(){
+    }
+
     public Room(Vector2 center, Vector2 size, RoomModule roomModule)
     {
-        m_Rectangle = new Rectangle(center, size);
+        m_Rectangle = new Rectangle(center, size);  
         m_RoomModule = roomModule;
     }
 
