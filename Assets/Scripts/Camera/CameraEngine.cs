@@ -1,11 +1,12 @@
 using System;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class CameraEngine : MonoBehaviour
 {
     [SerializeField]
-    private float m_HandleSize = 8;    
+    private float m_HandleSize = 8;
     private static CameraEngine m_Instance;
     public static CameraEngine Instance { get => m_Instance; set => m_Instance = value; }
     [SerializeField]
@@ -41,15 +42,17 @@ public class CameraEngine : MonoBehaviour
     public void Awake()
     {
         m_Instance = this;
-        if(m_Target == null){
+        if (m_Target == null)
+        {
             Debug.Log("No target for camera");
             return;
         }
-        SetupModule();        
+        SetupModule();
     }
 
-    public void SetupModule(){
-        m_FollowModule = new FollowModule(m_Target, Vector2.up * 23, this, new Vector2(60f, 50f));     
+    public void SetupModule()
+    {
+        m_FollowModule = new FollowModule(m_Target, Vector2.up * 23, this, new Vector2(60f, 50f));
     }
 
     public void LateUpdate()
@@ -57,9 +60,24 @@ public class CameraEngine : MonoBehaviour
         m_FollowModule?.Excute();
     }
 
+
     public void OnDrawGizmos()
     {
         Utils.DrawBox(Position, m_CameraSize, Color.yellow);
         m_FollowModule?.DrawGizmos();
+        Vector3 mousePosition = Event.current.mousePosition;
+
+        Vector3 worldPosition = Camera.current.ScreenToWorldPoint(mousePosition);
+        
+        foreach (var room in m_RoomModule.Rooms)
+        {
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireCube((Vector2)room.Rectangle.Center, (Vector2)room.Rectangle.Size);
+            if (room.Rectangle.L <= worldPosition.x && worldPosition.x <= room.Rectangle.R
+                && room.Rectangle.B <= worldPosition.y && worldPosition.y <= room.Rectangle.T)
+            {
+                Selection.activeObject = this.gameObject;                              
+            }
+        }
     }
 }

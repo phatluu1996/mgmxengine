@@ -15,12 +15,12 @@ public class FollowModule : CameraEngineModule
     private Vector2 m_SmoothFollowSpeed;
     [SerializeField]
     private Vector2 m_DeadZone = Vector2.zero;
-    [SerializeField] 
+    [SerializeField]
     private Rectangle m_DeadzoneRectangle;
 
-    [SerializeField] 
+    [SerializeField]
     private bool m_StartOutOfDeadZone;
-    [SerializeField] 
+    [SerializeField]
     private float m_WaitTimeToApproachTarget;
     public Transform Target { get => m_Target; set => m_Target = value; }
 
@@ -28,7 +28,7 @@ public class FollowModule : CameraEngineModule
 
     public Vector2 DeadZone { get => m_DeadZone; set => m_DeadZone = value; }
     public Rectangle DeadzoneRectangle { get => m_DeadzoneRectangle; set => m_DeadzoneRectangle = value; }
-    
+
     public FollowModule(Transform target, Vector2 targetOffset, CameraEngine cameraEngine, Vector2 deadZone)
     {
         Setup(target, targetOffset, cameraEngine, deadZone);
@@ -41,7 +41,7 @@ public class FollowModule : CameraEngineModule
 
     protected override void Update()
     {
-        Vector2 cameraPosition = m_CameraEngine.Position;
+        Vector2Int cameraPosition = new Vector2Int((int)m_CameraEngine.Position.x, (int)m_CameraEngine.Position.y);
         Vector2 targetPosition = (Vector2)m_NewTargetPosition;
         m_DeadzoneRectangle.Update(cameraPosition);
         if ((!m_DeadzoneRectangle.Contains((targetPosition)) && !m_DeadzoneRectangle.Contains((m_OldTargetPosition))) || m_StartOutOfDeadZone)
@@ -53,20 +53,20 @@ public class FollowModule : CameraEngineModule
                 m_WaitTimeToApproachTarget = 0;
                 m_StartOutOfDeadZone = false;
             }
-            
+
             m_CameraEngine.transform.Translate((newPosition - m_CameraEngine.Position));
         }
         else
         {
-            if(m_DeadZone == Vector2.zero)
+            if (m_DeadZone == Vector2.zero)
             {
                 m_CameraEngine.Position = (Vector2)m_Target.position;
             }
             else
             {
-                if(!m_DeadzoneRectangle.Contains((targetPosition)))
+                if (!m_DeadzoneRectangle.Contains((targetPosition)))
                 {
-                    if(targetPosition.x > m_DeadzoneRectangle.TR.x || targetPosition.x < m_DeadzoneRectangle.TL.x)
+                    if (targetPosition.x > m_DeadzoneRectangle.TR.x || targetPosition.x < m_DeadzoneRectangle.TL.x)
                     {
                         m_CameraEngine.transform.Translate(Vector2.right * (targetPosition - m_OldTargetPosition));
                     }
@@ -90,17 +90,17 @@ public class FollowModule : CameraEngineModule
         m_DeadzoneRectangle = new Rectangle(cameraEngine.Position, m_DeadZone);
         m_OldTargetPosition = m_NewTargetPosition;
         m_WaitTimeToApproachTarget = 0;
-        if(!m_DeadzoneRectangle.Contains((m_NewTargetPosition)))
+        if (!m_DeadzoneRectangle.Contains((m_NewTargetPosition)))
         {
             m_StartOutOfDeadZone = true;
         }
     }
 
-    public void SwitchTarget(Transform newTarget,  Vector2 newOffset,Vector2 newDeadZone)
+    public void SwitchTarget(Transform newTarget, Vector2 newOffset, Vector2 newDeadZone)
     {
         Setup(newTarget, newOffset, m_CameraEngine, newDeadZone);
     }
-    
+
     public void JumpToTarget()
     {
         m_CameraEngine.Position = m_NewTargetPosition;
@@ -108,7 +108,7 @@ public class FollowModule : CameraEngineModule
 
     public override void DrawGizmos()
     {
-        if(m_DeadZone != Vector2.zero)
+        if (m_DeadZone != Vector2.zero)
         {
             Utils.DrawBox(m_CameraEngine.Position, DeadZone, Color.red);
         }

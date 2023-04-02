@@ -60,6 +60,28 @@ public class Rectangle
         CB = new Vector2(m_Center.x, B);
     }
 
+    public void Reset(Vector2 center, Vector2 size){
+        Vector2 floatVector = center / 8; // Convert to tile units
+        Vector2Int intVector = new Vector2Int(
+            Mathf.FloorToInt(floatVector.x),
+            Mathf.FloorToInt(floatVector.y)
+        );
+
+        // Make sure components are odd
+        if (intVector.x % 2 == 0) intVector.x += 1;
+        if (intVector.y % 2 == 0) intVector.y += 1;
+
+        intVector *= Mathf.FloorToInt(8);
+        center = new Vector2(intVector.x, intVector.y);
+        m_Center = center;
+        m_Size = size;
+        m_Bounds = new Bounds(m_Center, m_Size);
+        CR = new Vector2(R, m_Center.y);
+        CL = new Vector2(L, m_Center.y);
+        CT = new Vector2(m_Center.x, T);
+        CB = new Vector2(m_Center.x, B);
+    }
+
     public bool Contains(Vector2 point)
     {
         return m_Bounds.Contains(point);

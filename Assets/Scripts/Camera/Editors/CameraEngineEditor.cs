@@ -70,6 +70,11 @@ public class CameraEngineEditor : Editor
                 {
                     m_Target.m_RoomModule.RemoveRoom(m_Target.m_RoomModule.Rooms[i]);
                 }
+                if (GUILayout.Button("Reset", GUILayout.Height(20), GUILayout.ExpandWidth(true), GUILayout.MaxWidth(80)))
+                {
+                    Room room = m_Target.m_RoomModule.Rooms[i];
+                    room.Rectangle.Reset(room.Rectangle.Center, room.m_RoomModule.DefaultSize);
+                }
 
                 EditorGUILayout.EndHorizontal();
                 EditorGUILayout.PropertyField(element, true);
@@ -113,7 +118,7 @@ public class CameraEngineEditor : Editor
 
             if (EditorGUI.EndChangeCheck())
             {
-                Undo.RecordObject(m_Target, "Adjust Room Rectangle");                
+                Undo.RecordObject(m_Target, "Adjust Room Rectangle");
                 room.Rectangle.Update(center, room.Rectangle.Size);
             }
 
@@ -130,8 +135,9 @@ public class CameraEngineEditor : Editor
             DrawRectangleDeadZoneHandle(i + 900, room, room.Rectangle.CB + new Vector2(m_Target.HandleSize * 3 / 2, m_Target.HandleSize / 2), EdgePosition.Bottom, m_Target.HandleSize);
 
             Handles.color = Color.magenta;
-            if(Handles.Button(room.Rectangle.BL + Vector2.one * m_Target.HandleSize, Quaternion.identity, m_Target.HandleSize, m_Target.HandleSize, Handles.RectangleHandleCap)){            
-                room.Rectangle = new Rectangle(room.Rectangle.Center, room.m_RoomModule.DefaultSize);
+            if (Handles.Button(room.Rectangle.BL + Vector2.one * m_Target.HandleSize, Quaternion.identity, m_Target.HandleSize, m_Target.HandleSize, Handles.RectangleHandleCap))
+            {                
+                room.Rectangle.Reset(room.Rectangle.Center, room.m_RoomModule.DefaultSize);
             }
         }
         SceneView.RepaintAll();
