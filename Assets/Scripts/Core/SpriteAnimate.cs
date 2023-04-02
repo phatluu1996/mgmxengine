@@ -9,7 +9,7 @@ public class SpriteAnimate : IAnimation
     private SpriteData m_CurrentSpriteData;
     public SpriteData CurrentSpriteData { get => m_CurrentSpriteData; set => m_CurrentSpriteData = value; }
     private float m_NormalizeTime;     
-    public float NormalizeTime { get => Mathf.Clamp01(m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime); }
+    public float NormalizeTime { get => m_Animator.GetCurrentAnimatorStateInfo(0).normalizedTime; }
 
     public SpriteAnimate(Animator animator)
     {

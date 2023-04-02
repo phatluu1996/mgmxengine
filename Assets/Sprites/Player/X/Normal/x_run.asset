@@ -18,4 +18,4 @@ MonoBehaviour:
   m_StartTime: 0
   m_TransitTime: 0
   m_RepeatTime: 0
-  m_ContinueTime: 0
+  m_ContinueTime: -1

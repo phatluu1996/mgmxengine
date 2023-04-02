@@ -142,6 +142,8 @@ public class X : Player
             {
                 IsAttack = false;
                 AttackTimer = 0;
+                ChargeTimer = 0;
+                AttackIndex = 0;
                 SpriteData normalSprite = playerState.SpriteDataSet.SpriteDatas[playerState.m_AnimationIndex];
                 SpriteAnimate.Animate(normalSprite, playerState.SpriteDataSet, SpriteAnimate.CurrentSpriteData.RealContinueTime(SpriteAnimate));
             }
